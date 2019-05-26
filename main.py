@@ -16,17 +16,364 @@ def about():
 def info():
     return render_template("info.html")
 
-@app.route('/parks_by_state.html')
-def parks_by_state():
-    return render_template("parks_by_state.html")#output=output)
+@app.route('/state_list.html')
+def state_list():
+    output = "hello world"
+    return render_template("state_list.html")
 
-@app.route('/Alabama',methods=['GET','POST'])
+@app.route('/Alabama')
 def Alabama():
     stateCode = "al"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+@app.route('/Alaska')
+def Alaska():
+    stateCode = "ak"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Arizona')
+def Arizona():
+    stateCode = "az"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Arkansas')
+def Arkansas():
+    stateCode = "ar"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+@app.route('/California')
+def California():
+    stateCode = "ca"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Colorado')
+def Colorado():
+    stateCode = "co"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Connecticut')
+def Connecticut():
+    stateCode = "ct"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Deleware')
+def Deleware():
+    stateCode = "de"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Florida')
+def Florida():
+    stateCode = "fl"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Georgia')
+def Georgia():
+    stateCode = "ga"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+@app.route('/Hawaii')
+def Hawaii():
+    stateCode = "hi"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Idaho')
+def Idaho():
+    stateCode = "id"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Illinois')
+def Illinois():
+    stateCode = "il"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Indiana')
+def Indiana():
+    stateCode = "in"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Iowa')
+def Iowa():
+    stateCode = "ia"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Kansas')
+def Kansas():
+    stateCode = "ks"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Kentucky')
+def Kentucky():
+    stateCode = "ky"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Louisiana')
+def Louisiana():
+    stateCode = "la"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Maine')
+def Maine():
+    stateCode = "me"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Maryland')
+def Maryland():
+    stateCode = "md"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Massachusetts')
+def Massachusetts():
+    stateCode = "ma"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Michigan')
+def Michigan():
+    stateCode = "mi"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Minnesota')
+def Minnesota():
+    stateCode = "mn"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Mississippi')
+def Mississippi():
+    stateCode = "ms"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Missouri')
+def Missouri():
+    stateCode = "mo"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Montana')
+def Montana():
+    stateCode = "mt"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Nebraska')
+def Nebraska():
+    stateCode = "ne"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Nevada')
+def Nevada():
+    stateCode = "nv"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/New_Hampshire')
+def New_Hampshire():
+    stateCode = "nh"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/New_Jersey')
+def New_Jersey():
+    stateCode = "nj"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/New_Mexico')
+def New_Mexico():
+    stateCode = "nm"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/New_York')
+def New_York():
+    stateCode = "ny"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/North_Carolina')
+def North_Carolina():
+    stateCode = "nc"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/North_Dakota')
+def North_Dakota():
+    stateCode = "nd"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Ohio')
+def Ohio():
+    stateCode = "oh"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Oklahoma')
+def Oklahoma():
+    stateCode = "ok"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Oregon')
+def Oregon():
+    stateCode = "or"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Pennsylvania')
+def Pennsylvania():
+    stateCode = "pa"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+@app.route('/Rhode_Island')
+def Rhode_Island():
+    stateCode = "ri"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/South_Carolina')
+def South_Carolina():
+    stateCode = "sc"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/South_Dakota')
+def South_Dakota():
+    stateCode = "sd"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Tennessee')
+def Tennessee():
+    stateCode = "tn"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Texas')
+def Texas():
+    stateCode = "tx"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Utah')
+def Utah():
+    stateCode = "ut"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Vermont')
+def Vermont():
+    stateCode = "vt"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Virginia')
+def Virginia():
+    stateCode = "va"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Washington')
+def Washington():
+    stateCode = "wa"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/West_Virginia')
+def West_Virginia():
+    stateCode = "wv"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Wisconsin')
+def Wisconsin():
+    stateCode = "wi"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+@app.route('/Wyoming')
+def Wyoming():
+    stateCode = "wy"
+    output = printInfo(stateCode)
+    return render_template("parks_by_state.html",output=output)
+
+
+
+
+def printInfo(stateCode):
 
     url = "https://developer.nps.gov/api/v1/parks"
 
-    querystring = {"stateCode":"AL","api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
+    querystring = {"stateCode":stateCode,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
 
     headers = {
         'User-Agent': "PostmanRuntime/7.13.0",
@@ -42,213 +389,10 @@ def Alabama():
 
     response = requests.request("GET", url, headers=headers, params=querystring)
     json_response = json.loads(response.text)
-
-    output =''
+    output =[]
     for x in range(0,int(json_response['total'])-1):
-        output = output + json_response['data'][x]['fullName'] + "\n"
-    print(output)
-    return (render_template("Alabama.html"),output)
-
-@app.route('/Alaska')
-def Alaska():
-    return render_template("Alaska.html")
-
-@app.route('/Arizona')
-def Arizona():
-    return render_template("Arizona.html")
-
-@app.route('/Arkansas')
-def Arkansas():
-    return render_template("Arkansas.html")
-
-@app.route('/California')
-def California():
-    return render_template("California.html")
-
-@app.route('/Colorado')
-def Colorado():
-    return render_template("Colorado.html")
-
-@app.route('/Connecticut')
-def Connecticut():
-    return render_template("Connecticut.html")
-
-@app.route('/Deleware')
-def Deleware():
-    return render_template("Deleware.html")
-
-@app.route('/Florida')
-def Florida():
-    return render_template("Florida.html")
-
-@app.route('/Georgia')
-def Georgia():
-    return render_template("Georgia.html")
-
-@app.route('/Hawaii')
-def Hawaii():
-    return render_template("Hawaii.html")
-
-@app.route('/Idaho')
-def Idaho():
-    return render_template("Idaho.html")
-
-@app.route('/Illinois')
-def Illinois():
-    return render_template("Illinois.html")
-
-@app.route('/Indiana')
-def Indiana():
-    return render_template("Indiana.html")
-
-@app.route('/Iowa')
-def Iowa():
-    return render_template("Iowa.html")
-
-@app.route('/Kansas')
-def Kansas():
-    return render_template("Kansas.html")
-
-@app.route('/Kentucky')
-def Kentucky():
-    return render_template("Kentucky.html")
-
-@app.route('/Louisiana')
-def Louisiana():
-    return render_template("Louisiana.html")
-
-@app.route('/Maine')
-def Maine():
-    return render_template("Maine.html")
-
-@app.route('/Maryland')
-def Maryland():
-    return render_template("Maryland.html")
-
-@app.route('/Massachusetts')
-def Massachusetts():
-    return render_template("Massachusetts.html")
-
-@app.route('/Michigan')
-def Michigan():
-    return render_template("Michigan.html")
-
-@app.route('/Minnesota')
-def Minnesota():
-    return render_template("Minnesota.html")
-
-@app.route('/Mississippi')
-def Mississippi():
-    return render_template("Mississippi.html")
-
-@app.route('/Missouri')
-def Missouri():
-    return render_template("Missouri.html")
-
-@app.route('/Montana')
-def Montana():
-    return render_template("Montana.html")
-
-@app.route('/Nebraska')
-def Nebraska():
-    return render_template("Nebraska.html")
-
-@app.route('/Nevada')
-def Nevada():
-    return render_template("Nevada.html")
-
-@app.route('/New_Hampshire')
-def New_Hampshire():
-    return render_template("New_Hampshire.html")
-
-@app.route('/New_Jersey')
-def New_Jersey():
-    return render_template("New_Jersey.html")
-
-@app.route('/New_Mexico')
-def New_Mexico():
-    return render_template("New_Mexico.html")
-
-@app.route('/New_York')
-def New_York():
-    return render_template("New_York.html")
-
-@app.route('/North_Carolina')
-def North_Carolina():
-    return render_template("North_Carolina.html")
-
-@app.route('/North_Dakota')
-def North_Dakota():
-    return render_template("North_Dakota.html")
-
-@app.route('/Ohio')
-def Ohio():
-    return render_template("Ohio.html")
-
-@app.route('/Oklahoma')
-def Oklahoma():
-    return render_template("Oklahoma.html")
-
-@app.route('/Oregon')
-def Oregon():
-    return render_template("Oregon.html")
-
-@app.route('/Pennsylvania')
-def Pennsylvania():
-    return render_template("Pennsylvania.html")
-
-@app.route('/Rhode_Island')
-def Rhode_Island():
-    return render_template("Rhode_Island.html")
-
-@app.route('/South_Carolina')
-def South_Carolina():
-    return render_template("South_Carolina.html")
-
-@app.route('/South_Dakota')
-def South_Dakota():
-    return render_template("South_Dakota.html")
-
-@app.route('/Tennessee')
-def Tennessee():
-    return render_template("Tennessee.html")
-
-@app.route('/Texas')
-def Texas():
-    return render_template("Texas.html")
-
-@app.route('/Utah')
-def Utah():
-    return render_template("Utah.html")
-
-@app.route('/Vermont')
-def Vermont():
-    return render_template("Vermont.html")
-
-@app.route('/Virginia')
-def Virginia():
-    return render_template("Virginia.html")
-
-@app.route('/Washington')
-def Washington():
-    return render_template("Washington.html")
-
-@app.route('/West_Virginia')
-def West_Virginia():
-    return render_template("West_Virginia.html")
-
-@app.route('/Wisconsin')
-def Wisconsin():
-    return render_template("Wisconsin.html")
-
-@app.route('/Wyoming')
-def Wyoming():
-    return render_template("Wyoming.html")
-
-
-
-
-
+        output.append(json_response['data'][x]['fullName'] + ": " + json_response['data'][x]['description'] + "( " + json_response['data'][0]['url'] +" )")
+    return output
 
 if __name__ == '__main__':
         app.run(debug=True)
