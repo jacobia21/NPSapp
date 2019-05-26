@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask Parent Template</title>
+    <link href="https://fonts.googleapis.com/css?family=Contrail+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" text="text/css" href="{{ url_for('static',    filename='css/template.css') }}">
+    <script src="{{url_for('static', filename='javascript/main.js')}}"></script>
+</head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="logo">National Parks Information Center</h1>
+        <strong><nav>
+          <ul class="menu">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('info')}}">Information</a></li>
+            <li><a href="{{ url_for('parks_by_state')}}">Parks By State</a></li>
+          </ul>
+        </nav></strong>
+
+      </div>
+    </header>
+{% block content %}
+{% endblock %}
+ </body>
+</html>
