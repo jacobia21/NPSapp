@@ -1,0 +1,14 @@
+body {
+  margin: 0px;
+}
+.output {
+  position: absolute; // Reposition logo from the natural layout
+  margin-top: 100px;
+  z-index: 2;
+}
+
+.messages{
+  position: absolute;
+  margin-top: 30px;
+  z-index: 1;
+}
