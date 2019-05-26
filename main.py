@@ -32,7 +32,7 @@ def Alabama():
 @app.route('/Alaska')
 def Alaska():
     stateCode = "ak"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -42,7 +42,7 @@ def Alaska():
 @app.route('/Arizona')
 def Arizona():
     stateCode = "az"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -51,7 +51,7 @@ def Arizona():
 @app.route('/Arkansas')
 def Arkansas():
     stateCode = "ar"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -60,7 +60,7 @@ def Arkansas():
 @app.route('/California')
 def California():
     stateCode = "ca"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -70,7 +70,7 @@ def California():
 @app.route('/Colorado')
 def Colorado():
     stateCode = "co"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -80,7 +80,7 @@ def Colorado():
 @app.route('/Connecticut')
 def Connecticut():
     stateCode = "ct"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -89,7 +89,7 @@ def Connecticut():
 @app.route('/Deleware')
 def Deleware():
     stateCode = "de"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -98,7 +98,7 @@ def Deleware():
 @app.route('/Florida')
 def Florida():
     stateCode = "fl"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -108,7 +108,7 @@ def Florida():
 @app.route('/Georgia')
 def Georgia():
     stateCode = "ga"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -117,7 +117,7 @@ def Georgia():
 @app.route('/Hawaii')
 def Hawaii():
     stateCode = "hi"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -126,7 +126,7 @@ def Hawaii():
 @app.route('/Idaho')
 def Idaho():
     stateCode = "id"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -136,7 +136,7 @@ def Idaho():
 @app.route('/Illinois')
 def Illinois():
     stateCode = "il"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -146,7 +146,7 @@ def Illinois():
 @app.route('/Indiana')
 def Indiana():
     stateCode = "in"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -156,7 +156,7 @@ def Indiana():
 @app.route('/Iowa')
 def Iowa():
     stateCode = "ia"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -166,7 +166,7 @@ def Iowa():
 @app.route('/Kansas')
 def Kansas():
     stateCode = "ks"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -175,7 +175,7 @@ def Kansas():
 @app.route('/Kentucky')
 def Kentucky():
     stateCode = "ky"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -184,7 +184,7 @@ def Kentucky():
 @app.route('/Louisiana')
 def Louisiana():
     stateCode = "la"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -194,7 +194,7 @@ def Louisiana():
 @app.route('/Maine')
 def Maine():
     stateCode = "me"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -204,7 +204,7 @@ def Maine():
 @app.route('/Maryland')
 def Maryland():
     stateCode = "md"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -213,7 +213,7 @@ def Maryland():
 @app.route('/Massachusetts')
 def Massachusetts():
     stateCode = "ma"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -222,7 +222,7 @@ def Massachusetts():
 @app.route('/Michigan')
 def Michigan():
     stateCode = "mi"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -231,7 +231,7 @@ def Michigan():
 @app.route('/Minnesota')
 def Minnesota():
     stateCode = "mn"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -240,7 +240,7 @@ def Minnesota():
 @app.route('/Mississippi')
 def Mississippi():
     stateCode = "ms"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -248,7 +248,7 @@ def Mississippi():
 @app.route('/Missouri')
 def Missouri():
     stateCode = "mo"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -257,7 +257,7 @@ def Missouri():
 @app.route('/Montana')
 def Montana():
     stateCode = "mt"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -266,7 +266,7 @@ def Montana():
 @app.route('/Nebraska')
 def Nebraska():
     stateCode = "ne"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -275,7 +275,7 @@ def Nebraska():
 @app.route('/Nevada')
 def Nevada():
     stateCode = "nv"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -284,7 +284,7 @@ def Nevada():
 @app.route('/New_Hampshire')
 def New_Hampshire():
     stateCode = "nh"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -293,7 +293,7 @@ def New_Hampshire():
 @app.route('/New_Jersey')
 def New_Jersey():
     stateCode = "nj"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -302,7 +302,7 @@ def New_Jersey():
 @app.route('/New_Mexico')
 def New_Mexico():
     stateCode = "nm"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -311,7 +311,7 @@ def New_Mexico():
 @app.route('/New_York')
 def New_York():
     stateCode = "ny"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -319,7 +319,7 @@ def New_York():
 @app.route('/North_Carolina')
 def North_Carolina():
     stateCode = "nc"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -328,7 +328,7 @@ def North_Carolina():
 @app.route('/North_Dakota')
 def North_Dakota():
     stateCode = "nd"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -337,7 +337,7 @@ def North_Dakota():
 @app.route('/Ohio')
 def Ohio():
     stateCode = "oh"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -346,7 +346,7 @@ def Ohio():
 @app.route('/Oklahoma')
 def Oklahoma():
     stateCode = "ok"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -355,7 +355,7 @@ def Oklahoma():
 @app.route('/Oregon')
 def Oregon():
     stateCode = "or"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -364,7 +364,7 @@ def Oregon():
 @app.route('/Pennsylvania')
 def Pennsylvania():
     stateCode = "pa"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -373,7 +373,7 @@ def Pennsylvania():
 @app.route('/Rhode_Island')
 def Rhode_Island():
     stateCode = "ri"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -382,7 +382,7 @@ def Rhode_Island():
 @app.route('/South_Carolina')
 def South_Carolina():
     stateCode = "sc"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -390,7 +390,7 @@ def South_Carolina():
 @app.route('/South_Dakota')
 def South_Dakota():
     stateCode = "sd"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -399,7 +399,7 @@ def South_Dakota():
 @app.route('/Tennessee')
 def Tennessee():
     stateCode = "tn"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -408,7 +408,7 @@ def Tennessee():
 @app.route('/Texas')
 def Texas():
     stateCode = "tx"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -417,7 +417,7 @@ def Texas():
 @app.route('/Utah')
 def Utah():
     stateCode = "ut"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -426,7 +426,7 @@ def Utah():
 @app.route('/Vermont')
 def Vermont():
     stateCode = "vt"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -435,7 +435,7 @@ def Vermont():
 @app.route('/Virginia')
 def Virginia():
     stateCode = "va"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -444,7 +444,7 @@ def Virginia():
 @app.route('/Washington')
 def Washington():
     stateCode = "wa"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -453,7 +453,7 @@ def Washington():
 @app.route('/West_Virginia')
 def West_Virginia():
     stateCode = "wv"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -462,7 +462,7 @@ def West_Virginia():
 @app.route('/Wisconsin')
 def Wisconsin():
     stateCode = "wi"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
@@ -471,12 +471,12 @@ def Wisconsin():
 @app.route('/Wyoming')
 def Wyoming():
     stateCode = "wy"
-    output = printInfo(stateCode)
+    output = parkName(stateCode)
     messages = description(stateCode)
     url = links(stateCode)
     return render_template("parks_by_state.html",output=output,messages=messages,url=url)
 
-    
+
 def query(stateCode):
     url = "https://developer.nps.gov/api/v1/parks"
 
