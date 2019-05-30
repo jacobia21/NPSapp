@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Flask Parent Template</title>
     <link href="https://fonts.googleapis.com/css?family=Contrail+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" text="text/css" href="{{ url_for('static',    filename='css/template.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='template.css') }}">
     <script src="{{url_for('static', filename='javascript/main.js')}}"></script>
 </head>
   <body>
@@ -14,6 +14,7 @@
         <strong><nav>
           <ul class="menu">
             <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('park_list') }}">Park List</a></li>
           </ul>
         </nav></strong>
 
@@ -22,3 +23,4 @@
 {% block content %}
 {% endblock %}
  </body>
+</html>

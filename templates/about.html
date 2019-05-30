@@ -9,9 +9,13 @@
   <body>
       {% extends "template.html" %}
       {%block content %}
-      <div class = "homepage_img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/US-NationalParkService-Logo.svg">
-      </div>
+      <h1>{{parkName}}</h1><br><br>
+      <p>Description: {{description}}
+          <br>
+          <br>
+          Adress:{{address}}
+      </p>
+
       {% endblock %}
   </body>
 </html>
