@@ -9,16 +9,20 @@
 </head>
   <body>
     <header>
-      <div class="container">
-        <h1 class="logo">National Parks Information Center</h1>
-        <strong><nav>
-          <ul class="menu">
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('park_list') }}">Park List</a></li>
-          </ul>
-        </nav></strong>
-
+      <div class="navbar">
+        <a href="{{ url_for('home') }}">Home</a>
+        <div class="dropdown">
+          <button class="dropbtn">Find Parks by...
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="{{url_for('interactive_map')}}">State</a>
+            <a href="#">Name</a>
+            <a href="#">Keywords</a>
+          </div>
+        </div>
       </div>
+
     </header>
 {% block content %}
 {% endblock %}
