@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>National Park Service Information Center</title>
+    <script src="{{url_for('static', filename='mapdata.js')}}"></script>
+    <script src="{{url_for('static', filename='usmap.js')}}"></script>
+  </head>
+  <body>
+      {% extends "template.html" %}
+      {%block content %}
+      <div class = "content">
+        <div class = "text">
+        <br><br><h1>Choose a State to View Parks</h1>
+        <a href= "{{url_for('state_list')}}">Or Click Here for List of States</a><br>
+        </div>
+        <div id="map"></div>
+
+      {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>National Park Service Information Center</title>
+
+  </head>
+  <body>
+      {% extends "template.html" %}
+      {%block content %}
+      <a href="{{url_for('interactive_map')}}">Back to Map</a>
+      {% for parks in output %}
+          <h2>{{parks}}</h2>
+      {%endfor%}
+      {% endblock %}
+  </body>
+</html>
