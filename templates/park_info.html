@@ -9,6 +9,7 @@
       {% extends "template.html" %}
       {%block content %}
       <a href="{{url_for('interactive_map')}}">Back to Map</a>
+      <a href="{{url_for('state_list')}}">Back to State List</a>
       {% for parks in output %}
           <h2>{{parks}}</h2><br>
       {%endfor%}

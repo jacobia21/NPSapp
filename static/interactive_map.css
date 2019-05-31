@@ -1,0 +1,11 @@
+.content{
+  position: fixed;
+  align-content: center;
+}
+.text{
+  text-align: center;
+}
+#map{
+  padding-right: 12.5%;
+  padding-left: 12.5%;
+}
