@@ -37,337 +37,337 @@ var simplemaps_usmap_mapdata={
       name: "Hawaii",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"hi\""
+      url:"http://localhost:5000/parks_by_state/\"hi\""
     },
     AK: {
       name: "Alaska",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"ak\""
+      url:"http://localhost:5000/parks_by_state/\"ak\""
     },
     FL: {
       name: "Florida",
       inactive: "no",
       hide: "no",
-      url:"http://localhost:5000/park_info/\"fl\""
+      url:"http://localhost:5000/parks_by_state/\"fl\""
     },
     NH: {
       name: "New Hampshire",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"nh\""
+      url:"http://localhost:5000/parks_by_state/\"nh\""
     },
     VT: {
       name: "Vermont",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"vt\""
+      url:"http://localhost:5000/parks_by_state/\"vt\""
     },
     ME: {
       name: "Maine",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"me\""
+      url:"http://localhost:5000/parks_by_state/\"me\""
     },
     RI: {
       name: "Rhode Island",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"ri\""
+      url:"http://localhost:5000/parks_by_state/\"ri\""
     },
     NY: {
       name: "New York",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"ny\""
+      url:"http://localhost:5000/parks_by_state/\"ny\""
     },
     PA: {
       name: "Pennsylvania",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"pa\""
+      url:"http://localhost:5000/parks_by_state/\"pa\""
     },
     NJ: {
       name: "New Jersey",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"nj\""
+      url:"http://localhost:5000/parks_by_state/\"nj\""
     },
     DE: {
       name: "Delaware",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"de\""
+      url:"http://localhost:5000/parks_by_state/\"de\""
     },
     MD: {
       name: "Maryland",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"md\""
+      url:"http://localhost:5000/parks_by_state/\"md\""
     },
     VA: {
       name: "Virginia",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"va\""
+      url:"http://localhost:5000/parks_by_state/\"va\""
     },
     WV: {
       name: "West Virginia",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"wv\""
+      url:"http://localhost:5000/parks_by_state/\"wv\""
     },
     OH: {
       name: "Ohio",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"oh\""
+      url:"http://localhost:5000/parks_by_state/\"oh\""
     },
     IN: {
       name: "Indiana",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"in\""
+      url:"http://localhost:5000/parks_by_state/\"in\""
     },
     IL: {
       name: "Illinois",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"il\""
+      url:"http://localhost:5000/parks_by_state/\"il\""
     },
     CT: {
       name: "Connecticut",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"ct\""
+      url:"http://localhost:5000/parks_by_state/\"ct\""
     },
     WI: {
       name: "Wisconsin",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"wi\""
+      url:"http://localhost:5000/parks_by_state/\"wi\""
     },
     NC: {
       name: "North Carolina",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"nc\""
+      url:"http://localhost:5000/parks_by_state/\"nc\""
     },
     DC: {
       name: "District of Columbia",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"dc\""
+      url:"http://localhost:5000/parks_by_state/\"dc\""
     },
     MA: {
       name: "Massachusetts",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"ma\""
+      url:"http://localhost:5000/parks_by_state/\"ma\""
     },
     TN: {
       name: "Tennessee",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"tn\""
+      url:"http://localhost:5000/parks_by_state/\"tn\""
     },
     AR: {
       name: "Arkansas",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"ar\""
+      url:"http://localhost:5000/parks_by_state/\"ar\""
     },
     MO: {
       name: "Missouri",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"mo\""
+      url:"http://localhost:5000/parks_by_state/\"mo\""
     },
     GA: {
       name: "Georgia",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"ga\""
+      url:"http://localhost:5000/parks_by_state/\"ga\""
     },
     SC: {
       name: "South Carolina",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"sc\""
+      url:"http://localhost:5000/parks_by_state/\"sc\""
     },
     KY: {
       name: "Kentucky",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"ky\""
+      url:"http://localhost:5000/parks_by_state/\"ky\""
     },
     AL: {
       name: "Alabama",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"al\""
+      url:"http://localhost:5000/parks_by_state/\"al\""
     },
     LA: {
       name: "Louisiana",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"la\""
+      url:"http://localhost:5000/parks_by_state/\"la\""
     },
     MS: {
       name: "Mississippi",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"ms\""
+      url:"http://localhost:5000/parks_by_state/\"ms\""
     },
     IA: {
       name: "Iowa",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"ia\""
+      url:"http://localhost:5000/parks_by_state/\"ia\""
     },
     MN: {
       name: "Minnesota",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"mn\""
+      url:"http://localhost:5000/parks_by_state/\"mn\""
     },
     OK: {
       name: "Oklahoma",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"ok\""
+      url:"http://localhost:5000/parks_by_state/\"ok\""
     },
     TX: {
       name: "Texas",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"tx\""
+      url:"http://localhost:5000/parks_by_state/\"tx\""
     },
     NM: {
       name: "New Mexico",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"nm\""
+      url:"http://localhost:5000/parks_by_state/\"nm\""
     },
     KS: {
       name: "Kansas",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"ks\""
+      url:"http://localhost:5000/parks_by_state/\"ks\""
     },
     NE: {
       name: "Nebraska",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"ne\""
+      url:"http://localhost:5000/parks_by_state/\"ne\""
     },
     SD: {
       name: "South Dakota",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"sd\""
+      url:"http://localhost:5000/parks_by_state/\"sd\""
     },
     ND: {
       name: "North Dakota",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"nd\""
+      url:"http://localhost:5000/parks_by_state/\"nd\""
     },
     WY: {
       name: "Wyoming",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"wy\""
+      url:"http://localhost:5000/parks_by_state/\"wy\""
     },
     MT: {
       name: "Montana",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"mt\""
+      url:"http://localhost:5000/parks_by_state/\"mt\""
     },
     CO: {
       name: "Colorado",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"co\""
+      url:"http://localhost:5000/parks_by_state/\"co\""
     },
     UT: {
       name: "Utah",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"ut\""
+      url:"http://localhost:5000/parks_by_state/\"ut\""
     },
     AZ: {
       name: "Arizona",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"az\""
+      url:"http://localhost:5000/parks_by_state/\"az\""
     },
     NV: {
       name: "Nevada",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"nv\""
+      url:"http://localhost:5000/parks_by_state/\"nv\""
     },
     OR: {
       name: "Oregon",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"or\""
+      url:"http://localhost:5000/parks_by_state/\"or\""
     },
     WA: {
       name: "Washington",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"wa\""
+      url:"http://localhost:5000/parks_by_state/\"wa\""
     },
     CA: {
       name: "California",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"ca\""
+      url:"http://localhost:5000/parks_by_state/\"ca\""
     },
     MI: {
       name: "Michigan",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"mi\""
+      url:"http://localhost:5000/parks_by_state/\"mi\""
     },
     ID: {
       name: "Idaho",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"id\""
+      url:"http://localhost:5000/parks_by_state/\"id\""
     },
     GU: {
       name: "Guam",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"gu\""
+      url:"http://localhost:5000/parks_by_state/\"gu\""
     },
     VI: {
       name: "Virgin Islands",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"vi\""
+      url:"http://localhost:5000/parks_by_state/\"vi\""
     },
     PR: {
       name: "Puerto Rico",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"pr\""
+      url:"http://localhost:5000/parks_by_state/\"pr\""
     },
     MP: {
       name: "Northern Mariana Islands",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"mp\""
+      url:"http://localhost:5000/parks_by_state/\"mp\""
     },
     AS: {
       name: "American Samoa",
       hide: "no",
       inactive: "no",
-      url:"http://localhost:5000/park_info/\"as\""
+      url:"http://localhost:5000/parks_by_state/\"as\""
     }
   }
 };

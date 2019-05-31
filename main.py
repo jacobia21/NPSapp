@@ -17,11 +17,11 @@ def interactive_map():
 def state_list():
     return render_template("state_list.html")
 
-@app.route('/park_info',methods = ['GET','POST'])
-@app.route('/park_info/<state_code>',methods = ['GET','POST'])
-def park_info(state_code):
+@app.route('/parks_by_state',methods = ['GET','POST'])
+@app.route('/parks_by_state/<state_code>',methods = ['GET','POST'])
+def parks_by_state(state_code):
     if state_code is "":
-        return render_template("park_info.html")
+        return render_template("parks_by_state.html")
     else:
         state_code = state_code.replace('"', '')
         json_response =json_reader(state_code)
@@ -29,7 +29,7 @@ def park_info(state_code):
         for x in range(0,int(json_response['total'])-1):
             output.append(json_response['data'][x]['fullName'])
 
-        return render_template("/park_info.html",output=output)
+        return render_template("/parks_by_state.html",output=output)
 
 def json_reader(state_code):
     url = "https://developer.nps.gov/api/v1/parks"
