@@ -1,0 +1,23 @@
+table {
+    width:70%;
+    margin-left:15%;
+    margin-right:15%;
+    padding-top: 50px;
+}
+th{
+  text-align: center;
+  font-size: 35px;
+  line-height: 20px;
+}
+th .link_to_map{
+  font-size: 15px;
+}
+td a, td{
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+td a:hover{
+  background: lightblue;
+}

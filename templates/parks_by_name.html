@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>National Park Service Information Center</title>
+
+  </head>
+  <body>
+      {% extends "template.html" %}
+      {%block content %}
+        <h2>{{name}} ({{park_code}})</h2>
+        <h3>{{designation}}</h3><br>
+        <h4>Description: </h4>
+          <p>{{description}}<p><br>
+        <h4>Weather</h4>
+          <p>{{weatherInfo}}</p><br>
+        <h4>Directions to Park:</h4><br>
+            <p>{{directionsInfo}} <a href="{{directionsUrl}}">({{directionsUrl}})</a></p><br>
+        <h3>For more information on {{name}}, visit: <a href="{{url}}">{{url}}</a></h3>
+      {% endblock %}
+  </body>
+</html>
+\park_code=park_code,name=name,designation=designation,description=description,directionsInfo = directionsInfo,
+    directionsUrl= directionsUrl,url=url,weatherInfo=weatherInfo

@@ -5,8 +5,6 @@
     <title>Flask Parent Template</title>
     <link href="https://fonts.googleapis.com/css?family=Contrail+One&display=swap" rel="stylesheet">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='template.css') }}">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='interactive_map.css') }}">
-    <script src="{{url_for('static', filename='javascript/main.js')}}"></script>
 </head>
   <body>
     <header>
@@ -18,7 +16,7 @@
           </button>
           <div class="dropdown-content">
             <a href="{{url_for('interactive_map')}}">State</a>
-            <a href="#">Name</a>
+            <a href="{{url_for('name_list')}}">Name</a>
             <a href="#">Keywords</a>
           </div>
         </div>

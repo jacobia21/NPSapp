@@ -3,74 +3,89 @@
   <head>
     <meta charset="utf-8">
     <title>National Park Service Information Center</title>
-
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='state_list.css') }}">
   </head>
   <body>
       {% extends "template.html" %}
       {%block content %}
-      <h2>Select a State to View Parks</h2>
-      <div class = "alphabetBlock">
+      <table align=center>
         <strong><nav>
-          <ul class = "menu1">
-            <li><a href="http://localhost:5000/parks_by_state/ al">Alabama</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ ak">Alaska</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ as">American Samoa</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ az">Arizona</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ ak">Arkansas</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ ca">California</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ co">Colorado</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ ct">Connecticut</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ de">Deleware</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ fl">Florida</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ ga">Georgia</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ gu">Guam</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ hi">Hawaii</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ id">Idaho</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ il">Illinois</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ in">Indiana</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ ia">Iowa</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ ks">Kansas</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ ky">Kentucky</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ la">Louisiana</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ me">Maine</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ md">Maryland</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ ma">Massachusetts</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ mi">Michigan</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ mn">Minnesota</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ ms">Mississippi</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ mo">Missouri</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ mt">Montana</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ ne">Nebraska</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ nv">Nevada</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ nh">New Hampshire</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ nj">New Jersey</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ nm">New Mexico</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ ny">New York</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ nc">North Carolina</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ nd">North Dakota</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ mp">Northern Mariana Islands</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ oh">Ohio</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ ok">Oklahoma</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ or">Oregon</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ pa">Pennsylvania</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ pr">Puerto Rico</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ ri">Rhode Island</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ sc">South Carolina</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ sd">South Dakota</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ tn">Tennessee</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ tx">Texas</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ ut">Utah</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ vt">Vermont</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ va">Virginia</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ vi">Virgin Islands</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ wa">Washington</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ wv">West Virginia</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ wi">Wisconsin</a></li>
-            <li><a href="http://localhost:5000/parks_by_state/ wy">Wyoming</a></li>
-          </ul>
+            <th colspan=8>
+              Select a State to View Parks<br>
+              <a class = "link_to_map" href= "{{url_for('interactive_map')}}">Or Click Here for Interactive Map</a><br>
+            </th>
+            <tr>
+              <td><a href="http://localhost:5000/parks_by_state/ al">Alabama</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ ak">Alaska</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ as">American Samoa</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ az">Arizona</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ ak">Arkansas</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ ca">California</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ co">Colorado</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ ct">Connecticut</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://localhost:5000/parks_by_state/ de">Deleware</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ dc">District of Columbia</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ fl">Florida</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ ga">Georgia</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ gu">Guam</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ hi">Hawaii</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ id">Idaho</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ il">Illinois</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://localhost:5000/parks_by_state/ in">Indiana</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ ia">Iowa</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ ks">Kansas</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ ky">Kentucky</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ la">Louisiana</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ me">Maine</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ md">Maryland</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ ma">Massachusetts</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://localhost:5000/parks_by_state/ mi">Michigan</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ mn">Minnesota</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ ms">Mississippi</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ mo">Missouri</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ mt">Montana</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ ne">Nebraska</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ nv">Nevada</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ nh">New Hampshire</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://localhost:5000/parks_by_state/ nj">New Jersey</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ nm">New Mexico</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ ny">New York</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ nc">North Carolina</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ nd">North Dakota</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ mp">Northern Mariana Islands</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ oh">Ohio</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ ok">Oklahoma</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://localhost:5000/parks_by_state/ or">Oregon</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ pa">Pennsylvania</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ pr">Puerto Rico</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ ri">Rhode Island</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ sc">South Carolina</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ sd">South Dakota</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ tn">Tennessee</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ tx">Texas</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://localhost:5000/parks_by_state/ ut">Utah</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ vt">Vermont</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ va">Virginia</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ vi">Virgin Islands</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ wa">Washington</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ wv">West Virginia</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ wi">Wisconsin</a></td>
+              <td><a href="http://localhost:5000/parks_by_state/ wy">Wyoming</a></td>
+
         </nav></strong>
-      </div>
-      <img src="https://images.britcdn.com/wp-content/uploads/2017/06/national-parks-cover-slide.jpg?h=550&auto=format">
+      </table>
       {% endblock %}
   </body>
 </html>
