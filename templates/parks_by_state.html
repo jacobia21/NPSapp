@@ -3,15 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>National Park Service Information Center</title>
-
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='parks_by_state.css') }}">
   </head>
   <body>
       {% extends "template.html" %}
       {%block content %}
       <a href="{{url_for('interactive_map')}}">Back to Map</a>
-      <a href="{{url_for('state_list')}}">Back to State List</a>
+      <a href="{{url_for('state_list')}}">Back to State List</a><br><br>
+      <h1>{{state}}</h1>
       {% for parks in output %}
-          <h2>{{parks}}</h2><br>
+          <a class = "parks" href="http://localhost:5000/park_info/{{parks}}">{{parks}}</h2><br><br>
       {%endfor%}
       {% endblock %}
   </body>

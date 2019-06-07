@@ -341,8 +341,8 @@ var simplemaps_usmap_mapdata={
     },
     GU: {
       name: "Guam",
-      hide: "no",
-      inactive: "no",
+      hide: "yes",
+      inactive: "yes",
       url:"http://localhost:5000/parks_by_state/\"gu\""
     },
     VI: {
@@ -353,20 +353,20 @@ var simplemaps_usmap_mapdata={
     },
     PR: {
       name: "Puerto Rico",
-      hide: "no",
-      inactive: "no",
+      hide: "yes",
+      inactive: "yes",
       url:"http://localhost:5000/parks_by_state/\"pr\""
     },
     MP: {
       name: "Northern Mariana Islands",
-      hide: "no",
-      inactive: "no",
+      hide: "yes",
+      inactive: "yes",
       url:"http://localhost:5000/parks_by_state/\"mp\""
     },
     AS: {
       name: "American Samoa",
-      hide: "no",
-      inactive: "no",
+      hide: "yes",
+      inactive: "yes",
       url:"http://localhost:5000/parks_by_state/\"as\""
     }
   }

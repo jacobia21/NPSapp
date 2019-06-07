@@ -1,0 +1,52 @@
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: red;opacity:0.7;
+  cursor: pointer;
+  border-radius: 65%;
+}
+
+
+.active, .btn:hover {
+  background-color: red;opacity:0.9;
+  color: white;
+  border-radius: 65%;
+}
+#navbar1{
+    overflow: hidden;
+    width: 100%;
+    float: left;
+    font-size: 30px;
+    color: #426e2b;
+    padding: 5px, 5px;
+    text-decoration: none;
+    text-align: center;
+}
+.parks {
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+}
+.parks:hover{
+  color: white;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.container{
+  column-count: 2;
+}
+h1{
+  color:white;
+}
