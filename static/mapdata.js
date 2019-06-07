@@ -13,7 +13,7 @@ var simplemaps_usmap_mapdata={
     //State defaults
     state_description: "See the parks in this state",
     state_color: "silver",
-    state_hover_color: "gold",
+    state_hover_color: "red",
     state_url: "",
     all_states_inactive: "no",
 
