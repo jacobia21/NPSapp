@@ -1,0 +1,22 @@
+.container {
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+    padding-top: 50px;
+
+}
+.one{
+  float:left;
+  width: 70%;
+  padding-left:2.5%;
+  padding-right: 2.5%;
+  border:1px solid red;
+
+}
+.two{
+  float:right;
+  width:22%;
+  padding-right:2%;
+  border:1px solid red;
+  text-align:center;
+}
