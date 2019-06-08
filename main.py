@@ -20,9 +20,9 @@ def interactive_map():
 @app.route('/state_list_homepage')
 def state_list_homepage():
     return render_template("state_list_homepage.html")
-    
-@app.route('/state_list/',methods=['GET','POST'])
-@app.route('/state_list/<state_code>',methods = ['GET','POST'])
+
+@app.route('/parks_by_state',methods=['GET','POST'])
+@app.route('/parks_by_state/<state_code>',methods = ['GET','POST'])
 def state_list(state_code):
     state_code = state_code.replace('"', '')
     if state_code is "":
@@ -34,7 +34,7 @@ def state_list(state_code):
             output.append(json_response['data'][x]['fullName'])
         state_code=state_code.upper().lstrip()
         state = states[state_code]
-        return render_template("/state_list.html",output=output,state=state,state_code=state_code)
+        return render_template("/parks_by_state.html",output=output,state=state,state_code=state_code)
 
 @app.route('/name_list/<alphabetChar>',methods=['GET','POST'])
 def name_list(alphabetChar):

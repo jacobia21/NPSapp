@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>National Park Service Information Center</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='parks_by_state.css') }}">
+  </head>
+  <body>
+      {% extends "template.html" %}
+      {%block content %}
+        <strong><nav>
+
+          <div class = "text">
+          <h1>Choose a State to View Parks</h1>
+          <a href= "{{url_for('interactive_map')}}">Or Click Here for Interactive Map</a><br>
+          </div>
+          <div class= "container">
+            <h1 class="state">{{state}}</h1>
+            <div id="navbar1">
+              <a href="http://localhost:5000/parks_by_state/&quot;al&quot;"><button class="btn">Alabama</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;ak&quot;"><button class="btn">Alaska</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;az&quot;"><button class="btn">Arizona</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;ca&quot;"><button class="btn">California</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;co&quot;"><button class="btn">Colorado</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;ct&quot;"><button class="btn">Connecticut</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;de&quot;"><button class="btn">Deleware</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;dc&quot;"><button class="btn">District of Columbia</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;fl&quot;"><button class="btn">Florida</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;ga&quot;"><button class="btn">Georgia</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;hi&quot;"><button class="btn">Hawaii</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;id&quot;"><button class="btn">Idaho</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;il&quot;"><button class="btn">Illinois</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;in&quot;"><button class="btn">Indiana</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;ia&quot;"><button class="btn">Iowa</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;ks&quot;"><button class="btn">Kansas</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;ky&quot;"><button class="btn">Kentucky</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;la&quot;"><button class="btn">Louisiana</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;me&quot;"><button class="btn">Maine</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;md&quot;"><button class="btn">Maryland</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;ma&quot;"><button class="btn">Massachusetts</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;mi&quot;"><button class="btn">Michigan</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;mn&quot;"><button class="btn">Minnesota</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;ms&quot;"><button class="btn">Mississippi</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;mo&quot;"><button class="btn">Missouri</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;mt&quot;"><button class="btn">Montana</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;ne&quot;"><button class="btn">Nebraska</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;nv&quot;"><button class="btn">Nevade</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;nh&quot;"><button class="btn">New Hampshire</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;nj&quot;"><button class="btn">New Jersey</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;nm&quot;"><button class="btn">New Mexico</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;ny&quot;"><button class="btn">New York</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;nc&quot;"><button class="btn">North Carolina</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;nd&quot;"><button class="btn">North Dakota</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;oh&quot;"><button class="btn">Ohio</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;ok&quot;"><button class="btn">Oklahoma</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;or&quot;"><button class="btn">Oregon</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;pa&quot;"><button class="btn">Pennsylvania</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;ri&quot;"><button class="btn">Rhode Island</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;sc&quot;"><button class="btn">South Carolina</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;sd&quot;"><button class="btn">South Dakota</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;tn&quot;"><button class="btn">Tennessee</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;tx&quot;"><button class="btn">Texas</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;ut&quot;"><button class="btn">Utah</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;vt&quot;"><button class="btn">Vermont</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;va&quot;"><button class="btn">Virginia</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;vi&quot;"><button class="btn">Virgin Islands</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;wa&quot;"><button class="btn">Washington</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;wv&quot;"><button class="btn">West Virginia</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;wi&quot;"><button class="btn">Wisconsin</button></a>
+              <a href="http://localhost:5000/parks_by_state/&quot;wy&quot;"><button class="btn">Wyoming</button></a>
+
+            </div>
+
+            <div class = "park_container">
+            {% for parks in output %}
+                <ul><li class= "list"><a class = "parks" href="http://localhost:5000/park_info/{{parks}}"><tr>{{parks}}</tr><br></a></li></ul>
+            {%endfor%}
+            </div>
+          </div>
+
+
+
+      {% endblock %}
+  </body>
+  </html>

@@ -1,17 +1,21 @@
 .btn {
   border: none;
   outline: none;
-  padding: 10px 16px;
   color: #033CD1;
   background-color: white;
   cursor: pointer;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 30px;
+  padding: 10px
 }
 
 
 .active, .btn:hover {
   background-color: #FCBD19;
   color: white;
-
 }
 #navbar1{
     overflow: hidden;
@@ -24,47 +28,8 @@
     text-align: center;
     padding-bottom: 20px;
 }
-.parks {
-  color: #033CD1;
-  text-decoration: none;
-  font-size: 20px;
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: bold;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
-}
 
-.parks:hover{
-  color: #FFCA40;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
-}
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  width: 400px;
-}
 
-.park_container{
-  column-count: 2;
-  width:90%;
-  padding-left: 10%;
-}
-.state{
-  margin-left: 5%;
-  margin-right: 5%;
-  text-align: center;
-  background-color: #FFCA40;
-  width: 90%;
-
-  color: #033CD1;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
-
-}
 .text{
   text-align: center;
   text-decoration: none;
@@ -76,7 +41,10 @@ ul {
   padding-top:20px;
   padding-bottom: 20px;
 }
-.text a{
+a{
   text-decoration: none;
   color: #033CD1;
+}
+.container{
+  padding-top: 20px;
 }
