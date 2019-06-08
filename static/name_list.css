@@ -23,6 +23,7 @@
     padding: 5px, 5px;
     text-decoration: none;
     text-align: center;
+    padding-bottom: 20px;
 }
 .parks {
   color: #033CD1;
@@ -60,11 +61,8 @@ ul {
   text-align: center;
   background-color: #FFCA40;
   width: 90%;
-  margin-bottom: 2%;
+
   color: #033CD1;
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 
-}
-.container{
-  padding-top: 100px;
 }

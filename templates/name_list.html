@@ -9,37 +9,38 @@
   <body>
       {% extends "template.html" %}
       {%block content %}
-      <div id="navbar1">
-        <a href="http://localhost:5000/name_list/&quot;A&quot"><button class="btn">A</button></a>
-        <a href="http://localhost:5000/name_list/&quot;B&quot"><button class="btn">B</button></a>
-        <a href="http://localhost:5000/name_list/&quot;C&quot"><button class="btn">C</button></a>
-        <a href="http://localhost:5000/name_list/&quot;D&quot"><button class="btn">D</button></a>
-        <a href="http://localhost:5000/name_list/&quot;E&quot"><button class="btn">E</button></a>
-        <a href="http://localhost:5000/name_list/&quot;F&quot"><button class="btn">F</button></a>
-        <a href="http://localhost:5000/name_list/&quot;G&quot"><button class="btn">G</button></a>
-        <a href="http://localhost:5000/name_list/&quot;H&quot"><button class="btn">H</button></a>
-        <a href="http://localhost:5000/name_list/&quot;I&quot"><button class="btn">I</button></a>
-        <a href="http://localhost:5000/name_list/&quot;J&quot"><button class="btn">J</button></a>
-        <a href="http://localhost:5000/name_list/&quot;K&quot"><button class="btn">K</button></a>
-        <a href="http://localhost:5000/name_list/&quot;L&quot"><button class="btn">L</button></a>
-        <a href="http://localhost:5000/name_list/&quot;M&quot"><button class="btn">M</button></a>
-        <a href="http://localhost:5000/name_list/&quot;N&quot"><button class="btn">N</button></a>
-        <a href="http://localhost:5000/name_list/&quot;O&quot"><button class="btn">O</button></a>
-        <a href="http://localhost:5000/name_list/&quot;P&quot"><button class="btn">P</button></a>
-        <a href="http://localhost:5000/name_list/&quot;Q&quot"><button class="btn">Q</button></a>
-        <a href="http://localhost:5000/name_list/&quot;R&quot"><button class="btn">R</button></a>
-        <a href="http://localhost:5000/name_list/&quot;S&quot"><button class="btn">S</button></a>
-        <a href="http://localhost:5000/name_list/&quot;T&quot"><button class="btn">T</button></a>
-        <a href="http://localhost:5000/name_list/&quot;U&quot"><button class="btn">U</button></a>
-        <a href="http://localhost:5000/name_list/&quot;V&quot"><button class="btn">V</button></a>
-        <a href="http://localhost:5000/name_list/&quot;W&quot"><button class="btn">W</button></a>
-        <a href="http://localhost:5000/name_list/&quot;X&quot"><button class="btn">X</button></a>
-        <a href="http://localhost:5000/name_list/&quot;Y&quot"><button class="btn">Y</button></a>
-        <a href="http://localhost:5000/name_list/&quot;Z&quot"><button class="btn">Z</button></a>
 
-      </div>
       <div class= "container">
         <h1 class="currentLetter">{{letter}}</h1>
+        <div id="navbar1">
+          <a href="http://localhost:5000/name_list/&quot;A&quot"><button class="btn">A</button></a>
+          <a href="http://localhost:5000/name_list/&quot;B&quot"><button class="btn">B</button></a>
+          <a href="http://localhost:5000/name_list/&quot;C&quot"><button class="btn">C</button></a>
+          <a href="http://localhost:5000/name_list/&quot;D&quot"><button class="btn">D</button></a>
+          <a href="http://localhost:5000/name_list/&quot;E&quot"><button class="btn">E</button></a>
+          <a href="http://localhost:5000/name_list/&quot;F&quot"><button class="btn">F</button></a>
+          <a href="http://localhost:5000/name_list/&quot;G&quot"><button class="btn">G</button></a>
+          <a href="http://localhost:5000/name_list/&quot;H&quot"><button class="btn">H</button></a>
+          <a href="http://localhost:5000/name_list/&quot;I&quot"><button class="btn">I</button></a>
+          <a href="http://localhost:5000/name_list/&quot;J&quot"><button class="btn">J</button></a>
+          <a href="http://localhost:5000/name_list/&quot;K&quot"><button class="btn">K</button></a>
+          <a href="http://localhost:5000/name_list/&quot;L&quot"><button class="btn">L</button></a>
+          <a href="http://localhost:5000/name_list/&quot;M&quot"><button class="btn">M</button></a>
+          <a href="http://localhost:5000/name_list/&quot;N&quot"><button class="btn">N</button></a>
+          <a href="http://localhost:5000/name_list/&quot;O&quot"><button class="btn">O</button></a>
+          <a href="http://localhost:5000/name_list/&quot;P&quot"><button class="btn">P</button></a>
+          <a href="http://localhost:5000/name_list/&quot;Q&quot"><button class="btn">Q</button></a>
+          <a href="http://localhost:5000/name_list/&quot;R&quot"><button class="btn">R</button></a>
+          <a href="http://localhost:5000/name_list/&quot;S&quot"><button class="btn">S</button></a>
+          <a href="http://localhost:5000/name_list/&quot;T&quot"><button class="btn">T</button></a>
+          <a href="http://localhost:5000/name_list/&quot;U&quot"><button class="btn">U</button></a>
+          <a href="http://localhost:5000/name_list/&quot;V&quot"><button class="btn">V</button></a>
+          <a href="http://localhost:5000/name_list/&quot;W&quot"><button class="btn">W</button></a>
+          <a href="http://localhost:5000/name_list/&quot;X&quot"><button class="btn">X</button></a>
+          <a href="http://localhost:5000/name_list/&quot;Y&quot"><button class="btn">Y</button></a>
+          <a href="http://localhost:5000/name_list/&quot;Z&quot"><button class="btn">Z</button></a>
+
+        </div>
             <div class="park_container">
             {% for park in output %}
               <ul><li class = "list"><a class = "parks" href="http://localhost:5000/park_info/{{park}}"><tr>{{park}}<br></tr></a></li></ul>

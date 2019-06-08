@@ -12,8 +12,8 @@
       {%block content %}
       <div class = "content">
         <div class = "text">
-        <br><br><h1>Choose a State to View Parks</h1>
-        <a href= "{{url_for('state_list')}}">Or Click Here for List of States</a><br>
+        <h1>Choose a State to View Parks</h1>
+        <a href= "http://localhost:5000/state_list_homepage">Or Click Here for List of States</a><br>
         </div>
         <div class="map_border"><iframe src="https://createaclickablemap.com/map.php?&id=82182&maplocation=false&online=true" width= "1200" height="700" style="border: none;"></iframe>
 <script>if (window.addEventListener){ window.addEventListener("message", function(event) { if(event.data.length >= 22) { if( event.data.substr(0, 22) == "__MM-LOCATION.REDIRECT") location = event.data.substr(22); } }, false); } else if (window.attachEvent){ window.attachEvent("message", function(event) { if( event.data.length >= 22) { if ( event.data.substr(0, 22) == "__MM-LOCATION.REDIRECT") location = event.data.substr(22); } }, false); } </script></div></div>

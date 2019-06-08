@@ -3,6 +3,18 @@
 }
 .text{
   text-align: center;
+  text-decoration: none;
+  color: #033CD1;
+  border: 3px solid #FFCA40;
+  width: 500px;
+  margin:auto;
+  margin-top:15px;
+  padding-top:20px;
+  padding-bottom: 20px;
+}
+.text a{
+  text-decoration: none;
+  color: #033CD1;
 }
 #map{
   align-content: center

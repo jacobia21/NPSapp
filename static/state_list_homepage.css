@@ -5,14 +5,13 @@
   color: #033CD1;
   background-color: white;
   cursor: pointer;
-  border-radius: 65%;
 }
 
 
 .active, .btn:hover {
   background-color: #FCBD19;
   color: white;
-  border-radius: 65%;
+
 }
 #navbar1{
     overflow: hidden;

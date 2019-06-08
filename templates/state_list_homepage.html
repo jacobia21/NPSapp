@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>National Park Service Information Center</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='state_list.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='state_list_homepage.css') }}">
   </head>
   <body>
       {% extends "template.html" %}
@@ -70,16 +70,7 @@
               <a href="http://localhost:5000/state_list/&quot;wy&quot;"><button class="btn">Wyoming</button></a>
 
             </div>
-
-            <div class = "park_container">
-            {% for parks in output %}
-                <ul><li class= "list"><a class = "parks" href="http://localhost:5000/park_info/{{parks}}"><tr>{{parks}}</tr><br></a></li></ul>
-            {%endfor%}
-            </div>
           </div>
-
-
-
       {% endblock %}
   </body>
 </html>
