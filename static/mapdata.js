@@ -6,14 +6,14 @@ var simplemaps_usmap_mapdata={
     background_transparent: "yes",
 
     //Label defaults
-    label_color: "#002767",
+    label_color: "white",
     hide_labels: "no",
-    border_color: "white",
+    border_color: "#033CD1",
 
     //State defaults
     state_description: "See the parks in this state",
-    state_color: "silver",
-    state_hover_color: "red",
+    state_color: "lightgray",
+    state_hover_color: "#03A3D1",
     state_url: "",
     all_states_inactive: "no",
 

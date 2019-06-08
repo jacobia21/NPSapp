@@ -3,17 +3,18 @@
   padding: 0;
 }
 body{
-  background-color: rgb(158, 166, 178);
+  background-color: lightgray;
+  padding-bottom: 50px;
 }
 .navbar {
   overflow: hidden;
-  background-color: #333;
+  border-bottom: 3px solid white;
 }
 
 .navbar a {
   float: left;
   font-size: 16px;
-  color: white;
+  color: #033CD1;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -28,7 +29,7 @@ body{
   font-size: 16px;
   border: none;
   outline: none;
-  color: white;
+  color: #033CD1;
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
@@ -36,29 +37,32 @@ body{
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: #FFCA40;
+  color: white;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  width:140px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 
 .dropdown-content a {
   float: none;
-  color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
   text-align: left;
+  background-color:white;
+  color: #FFCA40;
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color:silver;opacity:.5;
+  color: white;
 }
 
 .dropdown:hover .dropdown-content {
@@ -72,4 +76,18 @@ body{
   width: 50%;
   padding-left: 200px;
   margin-top: 20px;
+}
+.title{
+  padding-top: 30px;
+  padding-bottom: 10px;
+  text-align: center;
+  color:white;
+  border-bottom: 3px solid white;
+  background-color: #033CD1; /* For browsers that do not support gradients */
+  background-image: linear-gradient(90deg, #03A3D1,#033CD1,#03A3D1);
+  font-family: 'Fredoka One', cursive;
+  font-size: 30px;
+}
+sub{
+  font-size: 20px;
 }

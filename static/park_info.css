@@ -1,22 +1,77 @@
 .container {
-    width: 100%;
+    width: 1300px;
     margin: auto;
     padding: 10px;
     padding-top: 50px;
 
 }
-.one{
+.park{
   float:left;
-  width: 70%;
-  padding-left:2.5%;
-  padding-right: 2.5%;
-  border:1px solid red;
-
+  width: 75%;
+  border:5px solid #033cd1;
+  border-radius: 5px;
+  height: 400px;
 }
-.two{
+.vc{
   float:right;
   width:22%;
-  padding-right:2%;
-  border:1px solid red;
+  border:5px solid #033cd1;
+  border-radius: 5px;
   text-align:center;
+  height: 400px;
+  margin-right: 15px;
+}
+.vc_info{
+  padding-top: 5%;
+}
+.park_header{
+  text-align: center;
+  background-color: black;
+  padding: none;
+  height: 50px;
+  color:white;
+}
+.vc_header{
+  text-align: center;
+  background-color: black;
+  padding: none;
+  height: 40px;
+  padding-top:10px;
+  color:white;
+}
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+.operating_hours{
+  color:white;
+  width:20%;
+  float:right;
+  height: 350px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+.park_info{
+  float:left;
+  width: 80%;
 }

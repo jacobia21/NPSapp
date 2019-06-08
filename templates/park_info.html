@@ -8,25 +8,52 @@
   <body>
       {% extends "template.html" %}
       {%block content %}
+
       <section class = "container">
-        <div class = "one">
-          <h2>{{name}} ({{park_code}})</h2>
-          <h3>{{designation}}</h3><br>
-          <h4>Description: </h4>
-            <p>{{description}}<p><br>
-          <h4>Weather</h4>
-            <p>{{weatherInfo}}</p><br>
-          <h4>Directions to Park:</h4><br>
-              <p>{{directionsInfo}} <a href="{{directionsUrl}}">({{directionsUrl}})</a></p><br>
-          <h3>For more information on {{name}}, visit: <a href="{{url}}">{{url}}</a></h3>
+        <div class = "park">
+          <div class = "park_header">
+            <h2>{{name}} ({{park_code}})</h2>
+            <h3>{{designation}}</h3><br>
+          </div>
+          <div class="park_info">
+            <button class="collapsible">Description </button>
+            <div class="content"<p>{{description}}</p></div>
+          <button class="collapsible">Weather</button>
+            <div class ="content"><p>{{weatherInfo}}</p></div>
+          <button class="collapsible">Directions to Park</button>
+            <div class="content"><p>{{directionsInfo}} <a href="{{directionsUrl}}">({{directionsUrl}})</a></p></div>
         </div>
-        <div class = "two">
-          <h2>Visitor Centers</h2><br><br>
-          {%for centers in visitor_centers%}
-            <h4>{{centers}}</h4><br>
-        {%endfor%}
+        <div class="operating_hours">
+          <h3>Operating Hours</h3>
+        </div>
+        <h3>For more information on {{name}}, visit: <a href="{{url}}">{{url}}</a></h3>
+        </div>
+        <div class = "vc">
+          <h2 class = "vc_header">Visitor Center(s)</h2><br><br>
+          <div class = "vc_info">
+            {%for centers in visitor_centers%}
+              <h4>{{centers}}</h4><br>
+            {%endfor%}
+          </div>
         </div>
       </section>
+      <script>
+          var coll = document.getElementsByClassName("collapsible");
+          var i;
+
+          for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+              this.classList.toggle("active");
+              var content = this.nextElementSibling;
+              if (content.style.maxHeight){
+                content.style.maxHeight = null;
+              } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+              }
+            });
+          }
+        </script>
+
       {% endblock %}
   </body>
 </html>

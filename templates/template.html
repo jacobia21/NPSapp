@@ -5,10 +5,16 @@
     <title>Flask Parent Template</title>
     <link href="https://fonts.googleapis.com/css?family=Contrail+One&display=swap" rel="stylesheet">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='template.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One&display=swap" rel="stylesheet">
 </head>
   <body>
     <header>
       <div class="navbar">
+        <div class="title">
+          <header>National Park Service Information Kiosk</header>
+          <sub>The first stop to your next great adventure!</sub>
+        </div>
         <a href="{{ url_for('home') }}">Home</a>
         <div class="dropdown">
           <button class="dropbtn">Find Parks by...

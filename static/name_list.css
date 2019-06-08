@@ -2,14 +2,15 @@
   border: none;
   outline: none;
   padding: 10px 16px;
-  background-color: red;opacity:0.7;
+  color: #033CD1;
+  background-color: white;
   cursor: pointer;
   border-radius: 65%;
 }
 
 
 .active, .btn:hover {
-  background-color: red;opacity:0.9;
+  background-color: #FCBD19;
   color: white;
   border-radius: 65%;
 }
@@ -24,14 +25,17 @@
     text-align: center;
 }
 .parks {
-  color: black;
+  color: #033CD1;
   text-decoration: none;
   font-size: 20px;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: bold;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
+
 .parks:hover{
-  color: white;
+  color: #FFCA40;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 ul {
   list-style: none;
@@ -42,11 +46,25 @@ ul {
   flex-wrap: wrap;
   padding-top: 5px;
   padding-bottom: 5px;
+  width: 400px;
 }
 
-.container{
+.park_container{
   column-count: 2;
+  width:90%;
+  padding-left: 10%;
 }
-h1{
-  color:white;
+.currentLetter{
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: center;
+  background-color: #FFCA40;
+  width: 90%;
+  margin-bottom: 2%;
+  color: #033CD1;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+
+}
+.container{
+  padding-top: 100px;
 }

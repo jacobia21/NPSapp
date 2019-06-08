@@ -38,13 +38,14 @@
         <a href="http://localhost:5000/name_list/&quot;Z&quot"><button class="btn">Z</button></a>
 
       </div>
-
-      <h1 id="currentLetter">{{letter}}</h1><br>
-          <div class="container">
-          {% for park in output %}
-            <ul><li class = "list"><a class = "parks" href="http://localhost:5000/park_info/{{park}}"><tr>{{park}}<br></tr></a></li></ul>
-          {%endfor%}
-          </div>
+      <div class= "container">
+        <h1 class="currentLetter">{{letter}}</h1>
+            <div class="park_container">
+            {% for park in output %}
+              <ul><li class = "list"><a class = "parks" href="http://localhost:5000/park_info/{{park}}"><tr>{{park}}<br></tr></a></li></ul>
+            {%endfor%}
+            </div>
+      </div>
       {% endblock %}
   </body>
 </html>
