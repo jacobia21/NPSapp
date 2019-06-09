@@ -4,30 +4,45 @@
     <meta charset="utf-8">
     <title>National Park Service Information Center</title>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='park_info.css') }}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </head>
   <body>
+
       {% extends "template.html" %}
       {%block content %}
 
       <section class = "container">
         <div class = "park">
           <div class = "park_header">
-            <h2>{{name}} ({{park_code}})</h2>
+            <h2>{{name}}</h2>
             <h3>{{designation}}</h3><br>
           </div>
-          <div class="park_info">
-            <button class="collapsible">Description </button>
-            <div class="content"<p>{{description}}</p></div>
-          <button class="collapsible">Weather</button>
-            <div class ="content"><p>{{weatherInfo}}</p></div>
-          <button class="collapsible">Directions to Park</button>
-            <div class="content"><p>{{directionsInfo}} <a href="{{directionsUrl}}">({{directionsUrl}})</a></p></div>
+          <div class="image">
+            <img src="{{image}}"></img><br>
+            <h4 class="caption">{{caption}}</h4>
+          </div>
+          <div class="park_content">
+            <div class="park_info">
+              <button class="collapsible">Description </button>
+              <div class="content"><div class="c"><p>{{description}}</p></div><footer class="f">Description</footer></div>
+            <button class="collapsible">Weather</button>
+              <div class ="content"><div class="c"><p>{{weatherInfo}}</p></div><footer class="f">Weather Info</footer></div>
+            <button class="collapsible">Directions to Park</button>
+              <div class="content"><div class="c"><p>{{directionsInfo}} <a href="{{directionsUrl}}">({{directionsUrl}})</a></p></div><footer class="f">Directions</footer></div>
+          </div>
+        </div>
         </div>
         <div class="operating_hours">
-          <h3>Operating Hours</h3>
+          <header>Operating Hours</header><br>
+          <h4>Monday: {{monday}}</h4><br>
+          <h4>Tuesday: {{tuesday}}</h4><br>
+          <h4>Wednesday: {{wednesday}}</h4><br>
+          <h4>Thursday: {{thursday}}</h4><br>
+          <h4>Friday: {{friday}}</h4><br>
+          <h4>Saturday: {{saturday}}</h4><br>
+          <h4>Sunday: {{sunday}}</h4><br>
         </div>
-        <h3>For more information on {{name}}, visit: <a href="{{url}}">{{url}}</a></h3>
-        </div>
+
         <div class = "vc">
           <h2 class = "vc_header">Visitor Center(s)</h2><br><br>
           <div class = "vc_info">
@@ -37,23 +52,24 @@
           </div>
         </div>
       </section>
-      <script>
-          var coll = document.getElementsByClassName("collapsible");
-          var i;
 
-          for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function() {
-              this.classList.toggle("active");
-              var content = this.nextElementSibling;
-              if (content.style.maxHeight){
-                content.style.maxHeight = null;
-              } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-              }
-            });
-          }
+        <footer class="bottom">For more information on {{name}}, visit: <a href="{{url}}">{{url}}</a></footer>
+        <script>
+        $(document).ready(function() {
+        $('.content').hide();
+        $('.park_info button').on('click', function() {
+            var state = $(this).next('.content').is('.open');
+            if (state) {
+                $(this).next('.content').removeClass('open').fadeOut();
+            }else{
+                $(this).siblings('.content').removeClass('open').hide();
+                $(this).next('.content').addClass('open').show()
+
+            }
+        });
+        });
         </script>
-
       {% endblock %}
+
   </body>
 </html>

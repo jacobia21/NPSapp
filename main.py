@@ -28,7 +28,7 @@ def state_list(state_code):
     if state_code is "":
         return render_template("state_list_homepage.html")
     else:
-        json_response =json_reader(state_code,"")
+        json_response =parks_query(state_code,"")
         output=[]
         for x in range(0,int(json_response['total'])-1):
             output.append(json_response['data'][x]['fullName'])
@@ -48,7 +48,7 @@ def name_list(alphabetChar):
 @app.route('/park_info/<park_name>',methods=['GET','POST'])
 def park_info(park_name =""):
         park_name = park_name.replace('"', '')
-        json_response = json_reader("",park_name)
+        json_response = parks_query("",park_name)
         park_code = json_response['data'][0]['parkCode']
         designation = json_response['data'][0]['designation']
         description =  json_response['data'][0]['description']
@@ -57,19 +57,29 @@ def park_info(park_name =""):
         url = json_response['data'][0]['url']
         weatherInfo = json_response['data'][0]['weatherInfo']
 
-        vc_info = json_reader1(park_code)
+        monday=(json_response['data'][0]['operatingHours'][0]['standardHours']['monday'])
+        tuesday= (json_response['data'][0]['operatingHours'][0]['standardHours']['tuesday'])
+        wednesday = (json_response['data'][0]['operatingHours'][0]['standardHours']['wednesday'])
+        thursday =(json_response['data'][0]['operatingHours'][0]['standardHours']['thursday'])
+        friday=(json_response['data'][0]['operatingHours'][0]['standardHours']['friday'])
+        saturday = (json_response['data'][0]['operatingHours'][0]['standardHours']['saturday'])
+        sunday =(json_response['data'][0]['operatingHours'][0]['standardHours']['sunday'])
+
+        image = json_response['data'][0]['images'][0]['url']
+        img_caption = json_response['data'][0]['images'][0]['caption']
+        vc_info = visitor_center_query(park_code)
 
         return render_template("/park_info.html",park_code=park_code,name=park_name,designation=designation,description=description,directionsInfo = directionsInfo,
-        directionsUrl= directionsUrl,url=url,weatherInfo=weatherInfo,visitor_centers = vc_info)
+        directionsUrl= directionsUrl,url=url,weatherInfo=weatherInfo,visitor_centers = vc_info,monday=monday,tuesday=tuesday,wednesday=wednesday,thursday=thursday,
+        friday=friday,saturday=saturday,sunday=sunday,image=image,caption=img_caption)
 
-def json_reader(state_code,park_name):
+def parks_query(state_code,park_name):
     url = "https://developer.nps.gov/api/v1/parks"
     if not state_code == "":
         querystring = {"stateCode":state_code,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
     elif not park_name == "":
-        querystring = {"q":park_name,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
-    else:
-        querystring = {"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx","limit":"496"}
+        querystring = {"fields":"images,operatingHours","q":park_name,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
+
 
     headers = {
         'User-Agent': "PostmanRuntime/7.13.0",
@@ -86,7 +96,7 @@ def json_reader(state_code,park_name):
     json_response = json.loads(response.text)
     return json_response
 
-def json_reader1(park_code):
+def visitor_center_query(park_code):
 
     url = "https://developer.nps.gov/api/v1/visitorcenters"
 

@@ -4,7 +4,7 @@
 }
 body{
   background-color: lightgray;
-  padding-bottom: 50px;
+  padding-bottom: 200px;
 }
 .navbar {
   overflow: hidden;
@@ -81,7 +81,7 @@ body{
   padding-top: 30px;
   padding-bottom: 10px;
   text-align: center;
-  color:white;
+  color: white;
   border-bottom: 3px solid white;
   background-color: #033CD1; /* For browsers that do not support gradients */
   background-image: linear-gradient(90deg, #03A3D1,#033CD1,#03A3D1);
