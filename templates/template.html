@@ -27,11 +27,15 @@
             <a href="http://localhost:5000/name_list/&quot;A&quot;">Name</a>
           </div>
         </div>
+        <a href="{{ url_for('alerts') }}">Alerts</a>
+        <a href="{{ url_for('articles') }}">Articles</a>
+        <a href="{{ url_for('events') }}">Events</a>
+        <a href="{{ url_for('news_releases') }}">News Releases</a>
       </div>
 
     </header>
   {% block content %}
   {% endblock %}
-  
+
  </body>
 </html>

@@ -35,7 +35,7 @@
 }
 
 .parks:hover{
-  color: #FFCA40;
+  color: #0B4EFC;
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 ul {
@@ -57,7 +57,7 @@ ul {
 }
 .state{
   text-align: center;
-  background-color: #FFCA40;
+  background-color: #0B4EFC;
   width: 100%;
   padding-top:25px;
   padding-bottom:25px;
@@ -69,7 +69,7 @@ ul {
   text-align: center;
   text-decoration: none;
   color: #033CD1;
-  border: 3px solid #FFCA40;
+  border: 3px solid #0B4EFC;
   width: 500px;
   margin:auto;
   margin-top:15px;
@@ -78,9 +78,9 @@ ul {
 }
 .map{
   width: 100%;
-  background-color: #FFCA40;
+  background-color: #0B4EFC;
 }
 .map a{
   text-decoration: none;
-  color: #033CD1;
+  color: ghostwhite;
 }

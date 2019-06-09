@@ -13,8 +13,8 @@
 }
 
 
-.active, .btn:hover {
-  background-color: #FCBD19;
+.btn:hover {
+  background-color: #0B4EFC;
   color: white;
 }
 #navbar1{
@@ -34,7 +34,7 @@
   text-align: center;
   text-decoration: none;
   color: #033CD1;
-  border: 3px solid #FFCA40;
+  border: 3px solid #0B4EFC;
   width: 500px;
   margin:auto;
   margin-top:15px;

@@ -32,25 +32,35 @@
           </div>
         </div>
         </div>
-        <div class="operating_hours">
-          <header>Operating Hours</header><br>
-          <h4>Monday: {{monday}}</h4><br>
-          <h4>Tuesday: {{tuesday}}</h4><br>
-          <h4>Wednesday: {{wednesday}}</h4><br>
-          <h4>Thursday: {{thursday}}</h4><br>
-          <h4>Friday: {{friday}}</h4><br>
-          <h4>Saturday: {{saturday}}</h4><br>
-          <h4>Sunday: {{sunday}}</h4><br>
+        <div class="containers">
+          <h2 class="header">Operating Hours</h2>
+          <div class="body">
+            <h4>Monday: {{monday}}</h4><br>
+            <h4>Tuesday: {{tuesday}}</h4><br>
+            <h4>Wednesday: {{wednesday}}</h4><br>
+            <h4>Thursday: {{thursday}}</h4><br>
+            <h4>Friday: {{friday}}</h4><br>
+            <h4>Saturday: {{saturday}}</h4><br>
+            <h4>Sunday: {{sunday}}</h4><br>
+          </div>
         </div>
 
-        <div class = "vc">
-          <h2 class = "vc_header">Visitor Center(s)</h2><br><br>
-          <div class = "vc_info">
+        <div class = "containers">
+          <h2 class = "header">Visitor Center(s)</h2>
+          <div class = "body">
             {%for centers in visitor_centers%}
               <h4>{{centers}}</h4><br>
             {%endfor%}
           </div>
         </div>
+        <div class="containers">
+          <h2 class="header">More Info</h2>
+          <div id="other_info">
+            <a href="http://localhost:5000/alerts/&quot;{{name}}&quot;"><div class="other">Alerts</div></a>
+            <a href="{{url_for('articles')}}"><div class="other">Articles</div></a>
+            <a href="{{url_for('events')}}"><div class="other">Events</div></a>
+            <a href="{{url_for('news_releases')}}"><div class="other">News Releases</div></a>
+          </div>
       </section>
 
         <footer class="bottom">For more information on {{name}}, visit: <a href="{{url}}">{{url}}</a></footer>

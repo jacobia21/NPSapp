@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>National Park Service Information Center</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='alerts.css') }}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  </head>
+  <body>
+      {% extends "template.html" %}
+      {%block content %}
+      {%if homepage%}
+        <h1>Alerts Homepage</h1>
+      {%elif no_center%}
+        <a href="{{url_for('alerts')}}">Back to Alerts Homepage</a>
+        <h1 class="string">{{string}}</h1>
+      {%else%}
+      <a href="{{url_for('alerts')}}">Back to Alerts Homepage</a>
+      <h1>{{park}}</h1>
+      <div class="alerts">
+        {%for title,description,category in alerts%}
+          <div class="alert">
+            <button class="collapsible"><h3>{{title}}</h3><br><h4>{{category}}</h4></button>
+            <div class="content">
+              <h3>{{description}}</h3>
+            </div>
+          </div>
+        {%endfor%}
+      </div>
+      {%endif%}
+      <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+              content.style.display = "none";
+            } else {
+              content.style.display = "block";
+            }
+          });
+        }
+      </script>
+      {% endblock %}
+
+  </body>
+</html>

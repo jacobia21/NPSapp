@@ -23,31 +23,25 @@ img{
   height: 80%;
   margin-left: 10%;
 }
-.vc{
-  width:20%;
-  border:5px solid #033CD1;
-  border-radius: 5px;
-  text-align:center;
-  margin-right: 15px;
-  float: right;
-}
 
 .park_header{
   text-align: center;
-  background-color: ghostwhite;
+  background-color: #0B4EFC;
   padding: none;
   height: 50px;
-  color:#033CD1;
+  color:ghostwhite;
   border-bottom: 4px solid #033CD1;
 }
-.vc_header{
+.header{
   text-align: center;
-  background-color: ghostwhite;
+  background-color: #0B4EFC;
   padding: none;
   height: 40px;
   padding-top:10px;
-  color:#033CD1;
+  color:ghostwhite;
+  border-bottom: 3px solid #033CD1;
 }
+
 .collapsible {
   background-color: ghostwhite;
   color: #033CD1;
@@ -62,9 +56,10 @@ img{
 }
 
 .collapsible:hover {
-  background-color: #FFCA40;
+  background-color: #0B4EFC;
+  color:white;
 }
-.operating_hours{
+.containers{
 
   float:right;
   width:20%;
@@ -79,13 +74,9 @@ img{
   width: 100%;
   background-color: ghostwhite;
   padding-bottom: 100px;
+  height: 200px;
 }
-.operating_hours header{
-  background-color: ghostwhite;
-  color:#033CD1;
-  height: 50px;
-  line-height: 50px;
-}
+
 footer{
   text-align: center;
 }
@@ -93,7 +84,7 @@ footer{
   position: sticky;
   float: left;
   transition: max-height 0.2s ease-out;
-  height: 100px;
+  height: 200px;
   background-color: ghostwhite;
   width: 100%;
   text-align: center;
@@ -101,10 +92,17 @@ footer{
 }
 .f{
   width: 100%;
-  background-color: #FFCA40;
+  background-color: #0B4EFC;
+  color: ghostwhite;
+  padding-bottom: 9px;
+  padding-top: 9px;
 }
 .c{
-  height:80px;
+  height:150px;
+  padding-top: 15px;
+  font: caption;
+  font-size: 20px;
+  margin: 25px;
 }
 .bottom{
   float: left;
@@ -113,4 +111,33 @@ footer{
   width:50%;
   margin-top: 25px;
   margin-bottom: 10px;
+}
+#other_info{
+  background-color: #0B4EFC;
+}
+.other{
+  border: none;
+  outline: none;
+  cursor: pointer;
+  height:100%;
+  padding: 5px;
+}
+.other:hover {
+  background-color: #0B4EFC;
+  color: white;
+  width: 96%;
+  padding:5px;
+}
+.other{
+
+  color: #033CD1;
+  width: 96%;
+  background-color: ghostwhite;
+}
+a{
+  text-decoration: none;
+}
+.body{
+  background-color: ghostwhite;
+  padding-top: 10px;
 }
