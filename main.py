@@ -59,7 +59,7 @@ def alerts(park_name = ""):
         description = []
         category = []
         if(int(json_response['total'])==0):
-            return render_template("alerts.html",string=("Currently no Alerts for this park"),no_center=True)
+            return render_template("alerts.html",string=("Currently no Alerts for this park"),no_center=True,park=park_name)
         else:
             for x in range(0,int(json_response['total'])):
                 titles.append(json_response['data'][x]['title'])
@@ -107,8 +107,29 @@ def events():
     return render_template("/events.html")
 
 @app.route('/news_releases.html')
-def news_releases():
-    return render_template("/news_releases.html")
+@app.route('/news_releases/<park_name>',methods = ['GET','POST'])
+def news_releases(park_name = ""):
+    if(park_name == ""):
+        return render_template("/news_releases.html",homepage=True)
+    else:
+        url_add ="newsreleases"
+        park_name = park_name.replace('"', '')
+        json_response = other_query(url_add,park_name,0)
+        titles = []
+        release_dates= []
+        images= []
+        urls = []
+        abstracts = []
+        if(int(json_response['total'])==0):
+            return render_template("news_releases.html",string=("Currently no News Releases for this park"),no_releases=True,park= park_name)
+        else:
+            for x in range(0,int(json_response['total'])):
+                titles.append(json_response['data'][x]['title'])
+                release_dates.append(json_response['data'][x]['releasedate'])
+                images.append(json_response['data'][x]['image']['url'])
+                urls.append(json_response['data'][x]['url'])
+                abstracts.append(json_response['data'][x]['abstract'])
+            return render_template("news_releases.html",releases=zip(titles, release_dates,images,urls,abstracts),park=park_name)
 
 @app.route('/campgrounds.html')
 def campgrounds():
@@ -143,8 +164,13 @@ def park_info(park_name =""):
         saturday = (json_response['data'][0]['operatingHours'][0]['standardHours']['saturday'])
         sunday =(json_response['data'][0]['operatingHours'][0]['standardHours']['sunday'])
 
-        image = json_response['data'][0]['images'][0]['url']
-        img_caption = json_response['data'][0]['images'][0]['caption']
+        try:
+            image = json_response['data'][0]['images'][0]['url']
+            img_caption = json_response['data'][0]['images'][0]['caption']
+        except IndexError:
+            image = "https://federalnewsnetwork.com/wp-content/uploads/2019/05/cropped-7E9AE9B6-1DD8-B71B-0BD2CA3A36AEBEC4-1.png"
+            img_caption = "No Pictures Were Available"
+
         vc_info = visitor_center_query(park_code)
 
         return render_template("/park_info.html",park_code=park_code,name=park_name,designation=designation,description=description,directionsInfo = directionsInfo,

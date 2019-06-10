@@ -26,7 +26,34 @@
   background-color: #03A3D1;
   color: #033CD1;
 }
+.items{
+  margin-top: 50px;
+}
+.item{
+  margin-bottom: 20px;
+}
+.string{
+  margin: 15%;
+  text-align: center;
+}
+.links{
+      border-bottom: 3px solid white;
+}
+.links #page_header{
+    margin-left: 20px;
+    margin-top: 20px;
 
+}
+
+.links a{
+  text-decoration: none;
+  color: #033CD1;
+  padding: 5px,5px,0px,5px;
+
+}
+.links a:hover{
+  color: #033CD1;
+}
 /* Style the collapsible content. Note: hidden by default */
 .alerts_content {
   padding: 20px, 0px;
@@ -43,30 +70,7 @@
   padding-top: 50px;
   height: 100px;
 }
-.items{
-  margin-top: 50px;
-}
-.item{
-  margin-bottom: 20px;
-}
-.string{
-  margin: 25%;
-  text-align: center;
-}
-.links #page_header{
-    margin-left: 20px;
-    margin-top: 20px;
-}
 
-.links a{
-  text-decoration: none;
-  color: #033CD1;
-  padding: 5px,5px,0px,5px;
-
-}
-.links a:hover{
-  color: #033CD1;
-}
 .articles_content img{
   width: 40px;
   height: 40px;
@@ -85,4 +89,54 @@
   border-bottom-right-radius: 5px;
   padding-top: 50px;
   height: 100px;
+}
+
+.releases{
+  margin-top: 20px;
+  margin-bottom: 1000px;
+}
+.release{
+
+  background-color: white;
+  border: 3px solid blue;
+  border-radius: 5px;
+  width: 45%;
+  height: 500px;
+  margin-top: 20px;
+
+}
+.release:nth-child(odd){
+  float:left;
+  margin-left: 50px;
+}
+.release:nth-child(even){
+  float:right;
+  margin-right: 50px;
+}
+.release_header{
+  background-color: darkgray;
+  text-align: center;
+  overflow: hidden;
+  height:20%;
+  padding-top: 15px;
+}
+.release_header #title{
+  color:blue;
+  font-size: 20px;
+  text-decoration: none;
+}
+.release_header #date{
+  color: white;
+  font-size: 15px;
+}
+.release_content{
+  height:70%;
+  text-align: center;
+  padding: 10px;
+
+}
+.release_content img{
+  width:50%;
+  height:50%;
+  padding-top: 20px;
 }

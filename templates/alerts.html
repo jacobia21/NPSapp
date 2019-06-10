@@ -12,7 +12,11 @@
       {%if homepage%}
         <h1>Alerts Homepage</h1>
       {%elif no_center%}
-        <a href="{{url_for('alerts')}}">Back to Alerts Homepage</a>
+      <div class="links">
+        <a  href="{{url_for('alerts')}}">Alerts Homepage</a>
+        <h1 id="page_header">{{park}}</h1>
+        <a id="page_header" href="http://localhost:5000/park_info/&quot;{{park}}&quot;">Info Page</a>
+      </div>
         <h1 class="string">{{string}}</h1>
       {%else%}
 

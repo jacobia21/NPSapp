@@ -1,5 +1,5 @@
 *{
-  margin: 0;
+  margin-bottom:0;
   padding: 0;
 }
 body{
@@ -57,12 +57,12 @@ body{
   display: block;
   text-align: left;
   background-color:white;
-  color: #0B4EFC;
+  color: #03A3D1;
 }
 
 .dropdown-content a:hover {
-  background-color:silver;opacity:.5;
-  color: white;
+  background-color:white;opacity:.5;
+  color: #03A3D1;
 }
 
 .dropdown:hover .dropdown-content {

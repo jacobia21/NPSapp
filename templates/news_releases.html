@@ -3,12 +3,41 @@
   <head>
     <meta charset="utf-8">
     <title>National Park Service Information Center</title>
-
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='other_info.css') }}">
   </head>
   <body>
       {% extends "template.html" %}
       {%block content %}
-
+      {%if homepage%}
+        <h1>News Releases Homepage</h1>
+      {%elif no_releases%}
+        <div class="links">
+          <a  href="{{url_for('alerts')}}">News Releases Homepage</a>
+          <h1 id="page_header">{{park}}</h1>
+          <a id="page_header" href="http://localhost:5000/park_info/&quot;{{park}}&quot;">Info Page</a>
+        </div>
+          <h1 class="string">{{string}}</h1>
+      {%else%}
+        <div class="links">
+          <a  href="{{url_for('news_releases')}}">News Releases Homepage</a>
+          <h1 id="page_header">{{park}}</h1>
+          <a id="page_header" href="http://localhost:5000/park_info/&quot;{{park}}&quot;">Info Page</a>
+        </div>
+        <div class="releases">
+          {%for titles,release_dates,images,urls,abstracts in releases%}
+            <div class="release">
+              <div class ="release_header">
+                <a href="{{urls}}" id ="title">{{titles}}</a>
+                <h2 id="date">Released: {{release_dates}}</h2>
+              </div>
+              <div class="release_content">
+                <p>{{abstracts}}</p>
+                <img src={{images}}></img>
+              </div>
+            </div>
+          {%endfor%}
+        </div>
+      {%endif%}
       {% endblock %}
   </body>
 </html>
