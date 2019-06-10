@@ -31,7 +31,7 @@ body{
   outline: none;
   color: #033CD1;
   padding: 14px 16px;
-  background-color: inherit;
+  background-color: lightgray;
   font-family: inherit;
   margin: 0;
 }
