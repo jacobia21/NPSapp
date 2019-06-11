@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>National Park Service Information Center</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='parks_by.css') }}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  </head>
+  <body>
+      {% extends "template.html" %}
+      {%block content %}
+      {%if homepage%}
+        <div class= "container">
+          <h1 class="current">Select a Designation</h1>
+          <div id="navbar1">
+            <a href="http://localhost:5000/designation/&quot;National Park&quot"><button class="btn">Parks</button></a>
+            <a href="http://localhost:5000/designation/&quot;National Monument&quot"><button class="btn">Monuments</button></a>
+            <a href="http://localhost:5000/designation/&quot;National Preserve&quot"><button class="btn">Preserves</button></a>
+            <a href="http://localhost:5000/designation/&quot;National Historical Site&quot"><button class="btn">Historical Sites</button></a>
+            <a href="http://localhost:5000/designation/&quot;National Historical Park&quot"><button class="btn">Historical Parks</button></a>
+            <a href="http://localhost:5000/designation/&quot;National Memorial&quot"><button class="btn">Memorials</button></a>
+            <a href="http://localhost:5000/designation/&quot;National Battlefield&quot"><button class="btn">Battlefields</button></a>
+            <a href="http://localhost:5000/designation/&quot;National Military&quot"><button class="btn">Military Parks</button></a>
+            <a href="http://localhost:5000/designation/&quot;National Cemetery&quot"><button class="btn">Cemeteries</button></a>
+            <a href="http://localhost:5000/designation/&quot;National Seashore&quot"><button class="btn">Seashores</button></a>
+            <a href="http://localhost:5000/designation/&quot;National Lakeshore&quot"><button class="btn">Lakeshores</button></a>
+            <a href="http://localhost:5000/designation/&quot;National River&quot"><button class="btn">Rivers</button></a>
+          </div>
+              <div class="park_container">
+      {%else%}
+      <div class= "container">
+        <h1 class="current">{{designation}}s</h1>
+        <div id="navbar1">
+          <a href="http://localhost:5000/designation/&quot;National Park&quot"><button class="btn">Parks</button></a>
+          <a href="http://localhost:5000/designation/&quot;National Monument&quot"><button class="btn">Monuments</button></a>
+          <a href="http://localhost:5000/designation/&quot;National Preserve&quot"><button class="btn">Preserves</button></a>
+          <a href="http://localhost:5000/designation/&quot;National Historical Site&quot"><button class="btn">Historical Sites</button></a>
+          <a href="http://localhost:5000/designation/&quot;National Historical Park&quot"><button class="btn">Historical Parks</button></a>
+          <a href="http://localhost:5000/designation/&quot;National Memorial&quot"><button class="btn">Memorials</button></a>
+          <a href="http://localhost:5000/designation/&quot;National Battlefield&quot"><button class="btn">Battlefields</button></a>
+          <a href="http://localhost:5000/designation/&quot;National Military&quot"><button class="btn">Military Parks</button></a>
+          <a href="http://localhost:5000/designation/&quot;National Cemetery&quot"><button class="btn">Cemeteries</button></a>
+          <a href="http://localhost:5000/designation/&quot;National Seashore&quot"><button class="btn">Seashores</button></a>
+          <a href="http://localhost:5000/designation/&quot;National Lakeshore&quot"><button class="btn">Lakeshores</button></a>
+          <a href="http://localhost:5000/designation/&quot;National River&quot"><button class="btn">Rivers</button></a>
+        </div>
+            <div class="park_container">
+            {% for park in output %}
+              <ul><li class = "list"><a class = "parks" href="http://localhost:5000/park_info/{{park}}"><tr>{{park}}<br></tr></a></li></ul>
+            {%endfor%}
+            </div>
+      </div>
+      {%endif%}
+
+      {% endblock %}
+
+  </body>
+</html>

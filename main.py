@@ -43,7 +43,23 @@ def state_list(state_code):
             output.append(json_response['data'][x]['fullName'])
         state_code=state_code.upper().lstrip()
         state = states[state_code]
+
         return render_template("/parks_by_state.html",output=output,state=state,state_code=state_code)
+
+
+@app.route('/designation',methods=['GET','POST'])
+@app.route('/designation/<designation>',methods = ['GET','POST'])
+def designation(designation = ""):
+    designation = designation.replace('"', '')
+    if designation is "":
+        return render_template("designation.html",homepage = True)
+    else:
+        json_response =parks_query("",designation)
+        output=[]
+        for x in range(0,int(json_response['total'])-1):
+            output.append(json_response['data'][x]['fullName'])
+
+        return render_template("/designation.html",output=output,designation = designation)
 
 @app.route('/alerts',methods=['GET','POST'])
 @app.route('/alerts/<park_name>',methods = ['GET','POST'])
@@ -69,13 +85,13 @@ def alerts(park_name = ""):
                 description.append(json_response['data'][x]['description'])
                 category.append(json_response['data'][x]['category'])
                 if(category[x] == 'Danger'):
-                    symbols.append("danger.htm")
+                    symbols.append("danger.png")
                 elif(category[x] == 'Caution'):
-                    symbols.append("caution.png")
+                    symbols.append("caution_symbol.png")
                 elif(category[x] == 'Park Closure'):
                     symbols.append("closure.png")
                 elif(category[x] == 'Information'):
-                    symbols.append("info.jpg")
+                    symbols.append("info.png")
                 else:
                     symbols.append("https://federalnewsnetwork.com/wp-content/uploads/2019/05/cropped-7E9AE9B6-1DD8-B71B-0BD2CA3A36AEBEC4-1.png")
             return render_template("alerts.html",alerts=zip(titles, description,category,symbols),park=park_name)
@@ -206,11 +222,12 @@ def news_releases(park_name = ""):
             for x in range(0,num):
                 titles.append(json_response['data'][x]['title'])
                 release_dates.append(json_response['data'][x]['releasedate'])
-                if(json_response['data'][x]['image']['url'] is not ""):
-                    images.append(json_response['data'][x]['image']['url'])
-                else:
+                if(json_response['data'][x]['image']['url'] == ""):
                     images.append("https://federalnewsnetwork.com/wp-content/uploads/2019/05/cropped-7E9AE9B6-1DD8-B71B-0BD2CA3A36AEBEC4-1.png")
-                print(json_response['data'][x]['image'])
+                else:
+                    images.append(json_response['data'][x]['image']['url'])
+                    images.append("https://federalnewsnetwork.com/wp-content/uploads/2019/05/cropped-7E9AE9B6-1DD8-B71B-0BD2CA3A36AEBEC4-1.png")
+                
                 urls.append(json_response['data'][x]['url'])
                 abstracts.append(json_response['data'][x]['abstract'])
             return render_template("news_releases.html",releases=zip(titles, release_dates,images,urls,abstracts),park=park_name)
@@ -264,12 +281,12 @@ def park_info(park_name =""):
         directionsUrl= directionsUrl,url=url,weatherInfo=weatherInfo,visitor_centers = vc_info,monday=monday,tuesday=tuesday,wednesday=wednesday,thursday=thursday,
         friday=friday,saturday=saturday,sunday=sunday,image=image,caption=img_caption)
 
-def parks_query(state_code,park_name):
+def parks_query(state_code,query):
     url = "https://developer.nps.gov/api/v1/parks"
     if not state_code == "":
         querystring = {"stateCode":state_code,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
-    elif not park_name == "":
-        querystring = {"fields":"images,operatingHours","q":park_name,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
+    elif not query == "":
+        querystring = {"limit":500,"fields":"images,operatingHours","q":query,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
 
     response = requests.request("GET", url, headers=HEADERS, params=querystring)
     json_response = json.loads(response.text)

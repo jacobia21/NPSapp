@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 import urllib.request, json
 import requests
-
 def other_query(url_add,park_name,limit):
     url = "https://developer.nps.gov/api/v1/" + url_add
     if (limit == 0):
@@ -12,20 +11,40 @@ def other_query(url_add,park_name,limit):
     json_response = json.loads(response.text)
     return json_response
 
-url_add ="events"
 
-HEADERS = {
-    'User-Agent': "PostmanRuntime/7.13.0",
-    'Accept': "*/*",
-    'Cache-Control': "no-cache",
-    'Postman-Token': "ba17e7c0-d7da-4c2f-a6b5-398f119b4d7a,5b667102-566b-4af7-a613-ca45eccbc8fb",
-    'Host': "developer.nps.gov",
-    'cookie': "AWSALB=0LrrYUMkM9CPBQdkK1vRI3uVY/TPlQK7B4VZM131xzrNV2y50kKVhpn74xb4dcoiW9ZvewtQsDguOG6EQIgWsRPo1PyYhQP4p767UQDPvCN0nffmwxa159B//PWh",
-    'accept-encoding': "gzip, deflate",
-    'Connection': "keep-alive",
-    'cache-control': "no-cache"}
 
-json_response = other_query(url_add,"Acadia National Park",0)
-description = json_response['data'][0]['description'].strip("<p>")
-description = description.strip("</")
-print(description)
+def park_info(campground_name =""):
+        campground_name = campground_name.replace('"', '')
+        json_response = other_query("campgrounds",campground_name,0)
+
+        name = json_response['data'][0]['name']
+        designation = json_response['data'][0]['designation']
+        description =  json_response['data'][0]['description']
+        directionsInfo = json_response['data'][0]['directionsInfo']
+        directionsUrl = json_response['data'][0]['directionsUrl']
+        url = json_response['data'][0]['url']
+        weatherInfo = json_response['data'][0]['weatherInfo']
+
+        try:
+            monday=(json_response['data'][0]['operatingHours'][0]['standardHours']['monday'])
+            tuesday= (json_response['data'][0]['operatingHours'][0]['standardHours']['tuesday'])
+            wednesday = (json_response['data'][0]['operatingHours'][0]['standardHours']['wednesday'])
+            thursday =(json_response['data'][0]['operatingHours'][0]['standardHours']['thursday'])
+            friday=(json_response['data'][0]['operatingHours'][0]['standardHours']['friday'])
+            saturday = (json_response['data'][0]['operatingHours'][0]['standardHours']['saturday'])
+            sunday =(json_response['data'][0]['operatingHours'][0]['standardHours']['sunday'])
+        except IndexError:
+            monday = tuesday = wednesday = thursday = friday = saturday = sunday = "No Hours Listed"
+
+        try:
+            image = json_response['data'][0]['images'][0]['url']
+            img_caption = json_response['data'][0]['images'][0]['caption']
+        except IndexError:
+            image = "https://federalnewsnetwork.com/wp-content/uploads/2019/05/cropped-7E9AE9B6-1DD8-B71B-0BD2CA3A36AEBEC4-1.png"
+            img_caption = "No Pictures Were Available"
+
+        vc_info = visitor_center_query(park_code)
+
+        return render_template("/park_info.html",park_code=park_code,name=park_name,designation=designation,description=description,directionsInfo = directionsInfo,
+        directionsUrl= directionsUrl,url=url,weatherInfo=weatherInfo,visitor_centers = vc_info,monday=monday,tuesday=tuesday,wednesday=wednesday,thursday=thursday,
+        friday=friday,saturday=saturday,sunday=sunday,image=image,caption=img_caption)

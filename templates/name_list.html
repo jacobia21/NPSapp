@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>National Park Service Information Center</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='name_list.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='parks_by.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
   </head>
   <body>
@@ -11,7 +11,7 @@
       {%block content %}
 
       <div class= "container">
-        <h1 class="currentLetter">{{letter}}</h1>
+        <h1 class="current">{{letter}}</h1>
         <div id="navbar1">
           <a href="http://localhost:5000/name_list/&quot;A&quot"><button class="btn">A</button></a>
           <a href="http://localhost:5000/name_list/&quot;B&quot"><button class="btn">B</button></a>
