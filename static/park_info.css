@@ -27,7 +27,7 @@ img{
 .park_header{
   text-align: center;
   background-color: #0B4EFC;
-  padding: none;
+  padding-top: 10px;;
   height: 50px;
   color:ghostwhite;
   border-bottom: 4px solid #033CD1;
@@ -35,7 +35,6 @@ img{
 .header{
   text-align: center;
   background-color: #0B4EFC;
-  padding: none;
   height: 40px;
   padding-top:10px;
   color:ghostwhite;
@@ -60,7 +59,7 @@ img{
   color:white;
 }
 .containers{
-
+  background-color: #0B4EFC;
   float:right;
   width:20%;
   border:5px solid #033CD1;
@@ -129,7 +128,6 @@ footer{
   padding:5px;
 }
 .other{
-
   color: #033CD1;
   width: 96%;
   background-color: ghostwhite;
