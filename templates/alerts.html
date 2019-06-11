@@ -34,11 +34,12 @@
         <a id="page_header" href="http://localhost:5000/news_releases/&quot;{{park}}&quot;">News Releases</a>
       </div>
       <div class="items">
-        {%for title,description,category in alerts%}
+        {%for title,description,category,symbols in alerts%}
           <div class="item">
-            <button class="collapsible"><h3>{{title}}</h3><br><h4>Category: {{category}}</h4></button>
-            <div class="alerts_content">
+            <button class="collapsible" id="items"><h3>{{title}}</h3><br><h4>Category: {{category}}</h4></button>
+            <div class="content">
               <h3>{{description}}</h3>
+              <img src = "/static/{{symbols}}"></img>
             </div>
           </div>
         {%endfor%}

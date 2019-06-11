@@ -4,8 +4,7 @@ import requests
 import requests_cache
 from datetime import datetime, timedelta
 
-expire_after = timedelta(hours=1)
-requests_cache.core.configure(cache_name='demo_cache', expire_after=expire_after)
+
 HEADERS = {
     'User-Agent': "PostmanRuntime/7.13.0",
     'Accept': "*/*",
@@ -54,19 +53,32 @@ def alerts(park_name = ""):
     else:
         url_add ="alerts"
         park_name = park_name.replace('"', '')
-        json_response = other_query(url_add,park_name,0)
+        json_response = other_query(url_add,park_name,50)
         titles = []
         description = []
         category = []
+        symbols = []
         if(int(json_response['total'])==0):
             return render_template("alerts.html",string=("Currently no Alerts for this park"),no_center=True,park=park_name)
         else:
-            for x in range(0,int(json_response['total'])):
+            num = int(json_response['total'])
+            if(num > 50):
+                num = 50
+            for x in range(0,num):
                 titles.append(json_response['data'][x]['title'])
                 description.append(json_response['data'][x]['description'])
                 category.append(json_response['data'][x]['category'])
-
-            return render_template("alerts.html",alerts=zip(titles, description,category),park=park_name)
+                if(category[x] == 'Danger'):
+                    symbols.append("danger.htm")
+                elif(category[x] == 'Caution'):
+                    symbols.append("caution.png")
+                elif(category[x] == 'Park Closure'):
+                    symbols.append("closure.png")
+                elif(category[x] == 'Information'):
+                    symbols.append("info.jpg")
+                else:
+                    symbols.append("https://federalnewsnetwork.com/wp-content/uploads/2019/05/cropped-7E9AE9B6-1DD8-B71B-0BD2CA3A36AEBEC4-1.png")
+            return render_template("alerts.html",alerts=zip(titles, description,category,symbols),park=park_name)
 
 
 @app.route('/articles.html', methods = ['GET','POST'])
@@ -95,7 +107,10 @@ def articles(park_name = ""):
             for i in range(0,num-1):
                 titles.append(json_response['data'][i]['title'])
                 listingdescriptions.append(json_response['data'][i]['listingdescription'])
-                listingimages.append(json_response['data'][i]['listingimage']['url'])
+                if json_response['data'][i]['listingimage']['url'] != "":
+                    listingimages.append(json_response['data'][i]['listingimage']['url'])
+                else:
+                    listingimages.append("https://federalnewsnetwork.com/wp-content/uploads/2019/05/cropped-7E9AE9B6-1DD8-B71B-0BD2CA3A36AEBEC4-1.png")
                 urls.append(json_response['data'][i]['url'])
 
             return render_template("/articles.html",articles=zip(titles,listingdescriptions,listingimages,urls),park=park_name)
@@ -145,7 +160,7 @@ def events(park_name = ""):
                 if(json_response['data'][x]['contactname'] is not ""):
                     contact_name.append(json_response['data'][x]['contactname'])
                     contact_email.append(json_response['data'][x]['contactemailaddress'])
-                    contact_number.append(json_response['data'][x]['contactphonenumber'])
+                    contact_number.append(json_response['data'][x]['contacttelephonenumber'])
                 else:
                     contact_name.append("No contact given")
                     contact_email.append("")
@@ -185,10 +200,17 @@ def news_releases(park_name = ""):
         if(int(json_response['total'])==0):
             return render_template("news_releases.html",string=("Currently no News Releases for this park"),no_releases=True,park= park_name)
         else:
-            for x in range(0,int(json_response['total'])):
+            num = int(json_response['total'])
+            if(num > 50):
+                num = 50
+            for x in range(0,num):
                 titles.append(json_response['data'][x]['title'])
                 release_dates.append(json_response['data'][x]['releasedate'])
-                images.append(json_response['data'][x]['image']['url'])
+                if(json_response['data'][x]['image']['url'] is not ""):
+                    images.append(json_response['data'][x]['image']['url'])
+                else:
+                    images.append("https://federalnewsnetwork.com/wp-content/uploads/2019/05/cropped-7E9AE9B6-1DD8-B71B-0BD2CA3A36AEBEC4-1.png")
+                print(json_response['data'][x]['image'])
                 urls.append(json_response['data'][x]['url'])
                 abstracts.append(json_response['data'][x]['abstract'])
             return render_template("news_releases.html",releases=zip(titles, release_dates,images,urls,abstracts),park=park_name)

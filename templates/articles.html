@@ -14,7 +14,7 @@
         <div class="links">
           <a  href="{{url_for('articles')}}">Articles Homepage</a>
           <h1 id="page_header">{{park}}</h1>
-          <a id="page_header" href="http://localhost:5000/park_info/&quot;{{park}}&quot;">Info Page</a>
+          <a id="page_header" href="http://localhost:5000/park_info/{{park}}">Info Page</a>
           <a id="page_header" href="http://localhost:5000/alerts/&quot;{{park}}&quot;">Alerts</a>
           <a id="page_header" href="http://localhost:5000/articles/&quot;{{park}}&quot;">Articles</a>
           <a id="page_header" href="http://localhost:5000/events/&quot;{{park}}&quot;">Events</a>
@@ -35,8 +35,8 @@
         <div class="items">
           {%for titles,listingdescriptions,listingimages,urls in articles%}
             <div class="item">
-              <button class="collapsible"><h3>{{titles}}</h3></button>
-              <div class="articles_content">
+              <button class="collapsible" id="items"><h3>{{titles}}</h3></button>
+              <div class="content">
                 <p>{{listingdescriptions}}</p>
                 <img src="{{listingimages}}"></img><br>
                 <a href="{{urls}}">{{urls}}</a>

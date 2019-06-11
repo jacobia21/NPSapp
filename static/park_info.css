@@ -10,13 +10,15 @@
 .park{
   float:left;
   width: 75%;
-  border:5px solid #033CD1;
+  border-top:5px solid #033CD1;
   border-radius: 5px;
   margin-right: 10px;
+
 }
 .caption{
   width: 100%;
   text-align: center;
+
 }
 img{
   width:80%;
@@ -27,10 +29,17 @@ img{
 .park_header{
   text-align: center;
   background-color: #0B4EFC;
-  padding-top: 10px;;
+  padding-top: 10px;
   height: 100px;
   color:ghostwhite;
   border-bottom: 4px solid #033CD1;
+  border-left:5px solid #033CD1;
+  border-right: 5px solid #033CD1;
+}
+.whitespace{
+  float:left;
+  height: 400px;
+  width: 100%;
 }
 .header{
   text-align: center;
@@ -70,10 +79,13 @@ img{
   margin-left: 10px;
 }
 .park_info{
-  width: 100%;
+  width: 99%;
   background-color: ghostwhite;
   padding-bottom: 100px;
   height: 200px;
+  border-left:5px solid #033CD1;
+  border-right: 5px solid #033CD1;
+  border-bottom:5px solid #033CD1;
 }
 
 footer{
@@ -87,7 +99,7 @@ footer{
   background-color: ghostwhite;
   width: 100%;
   text-align: center;
-  height: 90%
+  height: 90%;
 }
 .f{
   width: 100%;
@@ -138,4 +150,22 @@ a{
 .body{
   background-color: ghostwhite;
   padding-top: 10px;
+}
+.image{
+  border-left:5px solid #033CD1;
+  border-right: 5px solid #033CD1;
+}
+.info_instruction{
+  width: 99%;
+  background-color: ghostwhite;
+  padding-top: 10px;
+  border-left:5px solid #033CD1;
+  border-right: 5px solid #033CD1;
+  font-size: 10px;
+}
+.info_instruction h2{
+  padding-top: 10px;
+  background-color: #033CD1;
+  width: 25%;
+  color: ghostwhite;
 }
