@@ -32,6 +32,7 @@
 .item{
   margin-bottom: 20px;
 }
+
 .string{
   margin: 15%;
   text-align: center;
@@ -139,4 +140,7 @@
   width:50%;
   height:50%;
   padding-top: 20px;
+}
+#instruction{
+  text-align: center;
 }

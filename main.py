@@ -102,9 +102,71 @@ def articles(park_name = ""):
 
 
 
-@app.route('/events.html')
-def events():
-    return render_template("/events.html")
+@app.route('/events',methods=['GET','POST'])
+@app.route('/events/<park_name>',methods = ['GET','POST'])
+def events(park_name = ""):
+    if(park_name == ""):
+        return render_template("/events.html",homepage=True)
+    else:
+        url_add ="events"
+        park_name = park_name.replace('"', '')
+        json_response = other_query(url_add,park_name,0)
+        titles = []
+        description = []
+        contact_name = []
+        contact_email = []
+        contact_number = []
+        category = []
+        date_start = []
+        recurrence_date_end = []
+        regres_info = []
+        fees_info = []
+        timestart = []
+        timeend = []
+        urls = []
+
+        if(int(json_response['total'])==0):
+            return render_template("events.html",string=("Currently no events for this park"),no_events = True,park=park_name)
+        else:
+            for x in range(0,int(json_response['total'])):
+                titles.append(json_response['data'][x]['title'])
+                #descriptions from api had paragraph and strong tags in response, these lines remove them
+                des = json_response['data'][x]['description']
+                des = des.replace("<p>",'')
+                des = des.replace("</p>",'')
+                des = des.replace("<strong>.</strong></p>",'.')
+                description.append(des)
+
+                category.append(json_response['data'][x]['category'])
+                date_start.append(json_response['data'][x]['datestart'])
+                timestart.append(json_response['data'][x]['times'][0]['timestart'])
+                timeend.append(json_response['data'][x]['times'][0]['timeend'])
+                urls.append(json_response['data'][x]['infourl'])
+                if(json_response['data'][x]['contactname'] is not ""):
+                    contact_name.append(json_response['data'][x]['contactname'])
+                    contact_email.append(json_response['data'][x]['contactemailaddress'])
+                    contact_number.append(json_response['data'][x]['contactphonenumber'])
+                else:
+                    contact_name.append("No contact given")
+                    contact_email.append("")
+                    contact_number.append("")
+
+                if(json_response['data'][x]['recurrencedateend'] is "true"):
+                    recurence_date_end.append(json_response['data'][x]['recurencedateend'])
+                else:
+                    recurrence_date_end.append("Not a recurring event")
+
+                if(json_response['data'][x]['isfree'] is "true"):
+                    fees_info.append(json_response['data'][x]['feesinfo'])
+                else:
+                    fees_info.append("No fees Required")
+
+                if(json_response['data'][x]['isregresrequired'] is "true"):
+                    regres_info.append(json_response['data'][x]['regresinfo'])
+                else:
+                    regres_info.append("No registration required")
+                contact_info = zip(contact_name, contact_email, contact_number)
+                return render_template("events.html",events=zip(titles, description,category,date_start,recurrence_date_end,fees_info,regres_info,timestart,timeend,urls),park=park_name)
 
 @app.route('/news_releases.html')
 @app.route('/news_releases/<park_name>',methods = ['GET','POST'])
@@ -156,13 +218,16 @@ def park_info(park_name =""):
         url = json_response['data'][0]['url']
         weatherInfo = json_response['data'][0]['weatherInfo']
 
-        monday=(json_response['data'][0]['operatingHours'][0]['standardHours']['monday'])
-        tuesday= (json_response['data'][0]['operatingHours'][0]['standardHours']['tuesday'])
-        wednesday = (json_response['data'][0]['operatingHours'][0]['standardHours']['wednesday'])
-        thursday =(json_response['data'][0]['operatingHours'][0]['standardHours']['thursday'])
-        friday=(json_response['data'][0]['operatingHours'][0]['standardHours']['friday'])
-        saturday = (json_response['data'][0]['operatingHours'][0]['standardHours']['saturday'])
-        sunday =(json_response['data'][0]['operatingHours'][0]['standardHours']['sunday'])
+        try:
+            monday=(json_response['data'][0]['operatingHours'][0]['standardHours']['monday'])
+            tuesday= (json_response['data'][0]['operatingHours'][0]['standardHours']['tuesday'])
+            wednesday = (json_response['data'][0]['operatingHours'][0]['standardHours']['wednesday'])
+            thursday =(json_response['data'][0]['operatingHours'][0]['standardHours']['thursday'])
+            friday=(json_response['data'][0]['operatingHours'][0]['standardHours']['friday'])
+            saturday = (json_response['data'][0]['operatingHours'][0]['standardHours']['saturday'])
+            sunday =(json_response['data'][0]['operatingHours'][0]['standardHours']['sunday'])
+        except IndexError:
+            monday = tuesday = wednesday = thursday = friday = saturday = sunday = "No Hours Listed"
 
         try:
             image = json_response['data'][0]['images'][0]['url']

@@ -2,10 +2,19 @@ from flask import Flask, render_template, request
 import urllib.request, json
 import requests
 
+def other_query(url_add,park_name,limit):
+    url = "https://developer.nps.gov/api/v1/" + url_add
+    if (limit == 0):
+        querystring = {"q":park_name,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
+    else:
+        querystring = {"limit":limit,"q":park_name,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
+    response = requests.request("GET", url, headers=HEADERS, params=querystring)
+    json_response = json.loads(response.text)
+    return json_response
 
-url = "https://developer.nps.gov/api/v1/parks"
-querystring = {"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
-headers = {
+url_add ="events"
+
+HEADERS = {
     'User-Agent': "PostmanRuntime/7.13.0",
     'Accept': "*/*",
     'Cache-Control': "no-cache",
@@ -16,6 +25,7 @@ headers = {
     'Connection': "keep-alive",
     'cache-control': "no-cache"}
 
-response = requests.request("GET", url, headers=headers, params=querystring)
-json_response = json.loads(response.text)
-print(json_response['data'][0])
+json_response = other_query(url_add,"Acadia National Park",0)
+description = json_response['data'][0]['description'].strip("<p>")
+description = description.strip("</")
+print(description)
