@@ -30,14 +30,42 @@
               <div class ="content"><div class="c"><p>{{weatherInfo}}</p></div><footer class="f">Weather Info</footer></div>
             <button class="collapsible">Directions to Park</button>
               <div class="content"><div class="c"><p>{{directionsInfo}} <a href="{{directionsUrl}}">({{directionsUrl}})</a></p></div><footer class="f">Directions</footer></div>
+            <button class="collapsible">Nearby Campgrounds</button>
+              <div class="content">
+                {%if campgrounds == "none"%}
+                  <h4>No Campgrounds Specified</h4>
+                {%else%}
+                  {%for camps in campgrounds%}
+                  <button class = collapsible>{{camps[0]}}</button>
+                  <div class = "content">
+                    Description: {{camps[1]}}<br>
+                    Regulations: {{camps[2]}}<br>
+                    Campsites: {{camps[3]}}<br>
+                    Directions = {{camps[4]}}
+                  </div>
+                  {%endfor%}
+                {%endif%}
             </div>
-          </div>
-          <div class ="campgrounds">
-            <h2 class = "header">Nearby Campgrounds</h2>
-            <div class = "body"></div>
+            <button class="collapsible">Visitor Centers</button>
+            <div class="content">
+              {%if visitorcenters == "none"%}
+                <h4>No Centers Specified</h4>
+              {%else%}
+              {%for centers in visitor_centers%}
+              <button class = collapsible>{{centers[0]}}</button>
+              <div class="content">
+                Description: {{centers[1]}}<br>
+                Directions: {{centers[2]}}<br>
+                For more information, visit: {{centers[3]}}<br>
+              </div>
+              {%endfor%}
+              {%endif%}
           </div>
         </div>
-
+            <footer class="bottom">For more information on {{name}}, visit: <a href="{{url}}">{{url}}</a></footer>
+          </div>
+        </div>
+        <div class="right">
         <div class="containers">
           <h2 class="header">Operating Hours</h2>
           <div class="body">
@@ -50,15 +78,6 @@
             <h4>Sunday: {{sunday}}</h4><br>
           </div>
         </div>
-
-        <div class = "containers">
-          <h2 class = "header">Visitor Center(s)</h2>
-          <div class = "body">
-            {%for centers in visitor_centers%}
-              <h4>{{centers}}</h4><br>
-            {%endfor%}
-            </div>
-          </div>
           <div class="containers">
           <h2 class="header">More Info</h2>
           <div id="other_info">
@@ -66,10 +85,11 @@
             <a href="http://localhost:5000/articles/&quot;{{name}}&quot;"><div class="other">Articles</div></a>
             <a href="http://localhost:5000/events/&quot;{{name}}&quot;"><div class="other">Events</div></a>
             <a href="http://localhost:5000/news_releases/&quot;{{name}}&quot;"><div class="other">News Releases</div></a>
+            <a href="http://localhost:5000/education/&quot;{{name}}&quot;"><div class="other">Educational Resources</div></a>
+          </div>
+        </div>
           </div>
       </section>
-
-        <footer class="bottom">For more information on {{name}}, visit: <a href="{{url}}">{{url}}</a></footer>
         <script>
         $(document).ready(function() {
         $('.content').hide();

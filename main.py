@@ -227,14 +227,17 @@ def news_releases(park_name = ""):
                 else:
                     images.append(json_response['data'][x]['image']['url'])
                     images.append("https://federalnewsnetwork.com/wp-content/uploads/2019/05/cropped-7E9AE9B6-1DD8-B71B-0BD2CA3A36AEBEC4-1.png")
-                
+
                 urls.append(json_response['data'][x]['url'])
                 abstracts.append(json_response['data'][x]['abstract'])
             return render_template("news_releases.html",releases=zip(titles, release_dates,images,urls,abstracts),park=park_name)
-
-@app.route('/campgrounds.html')
-def campgrounds():
-    return render_template("/campgrounds.html")
+@app.route('/education.html')
+@app.route('/education/<park_name>',methods = ['GET','POST'])
+def education(park_name = ""):
+    if(park_name == ""):
+        return render_template("/education.html",homepage=True)
+    else:
+        return render_template("/education.html")
 
 @app.route('/name_list/<alphabetChar>',methods=['GET','POST'])
 def name_list(alphabetChar):
@@ -276,10 +279,12 @@ def park_info(park_name =""):
             img_caption = "No Pictures Were Available"
 
         vc_info = visitor_center_query(park_code)
+        campgrounds = campgrounds_query(park_code)
+        print(campgrounds)
 
         return render_template("/park_info.html",park_code=park_code,name=park_name,designation=designation,description=description,directionsInfo = directionsInfo,
         directionsUrl= directionsUrl,url=url,weatherInfo=weatherInfo,visitor_centers = vc_info,monday=monday,tuesday=tuesday,wednesday=wednesday,thursday=thursday,
-        friday=friday,saturday=saturday,sunday=sunday,image=image,caption=img_caption)
+        friday=friday,saturday=saturday,sunday=sunday,image=image,caption=img_caption,campgrounds=campgrounds)
 
 def parks_query(state_code,query):
     url = "https://developer.nps.gov/api/v1/parks"
@@ -299,12 +304,42 @@ def visitor_center_query(park_code):
     response = requests.request("GET", url, headers=HEADERS, params=querystring)
     json_response = json.loads(response.text)
 
-    output = []
+    titles = []
+    descriptions = []
+    directions = []
+    urls = []
     if(int(json_response['total'])==0):
-        output.append("No Visitor Centers Specified")
+        output = "none"
     else:
         for i in range(0,int(json_response['total'])):
-            output.append(json_response['data'][i]['name'])
+            titles.append(json_response['data'][i]['name'])
+            descriptions.append(json_response['data'][i]['description'])
+            directions.append(json_response['data'][i]['directionsInfo'])
+            urls.append(json_response['data'][i]['url'])
+        output = zip(titles,descriptions,directions,urls)
+    return output
+def campgrounds_query(park_code):
+
+    url = "https://developer.nps.gov/api/v1/campgrounds"
+    querystring = {"parkCode":park_code,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
+    response = requests.request("GET", url, headers=HEADERS, params=querystring)
+    json_response = json.loads(response.text)
+
+    titles = []
+    descriptions = []
+    regulations = []
+    campsites = []
+    directions = []
+    if(int(json_response['total'])==0):
+        output = "none"
+    else:
+        for i in range(0,int(json_response['total'])):
+            titles.append(json_response['data'][i]['name'])
+            descriptions.append(json_response['data'][i]['description'])
+            regulations.append(json_response['data'][i]['regulationsoverview'])
+            campsites.append(json_response['data'][i]['campsites']['totalsites'])
+            directions.append(json_response['data'][i]['directionsoverview'])
+        output = zip(titles,descriptions,regulations,campsites,directions)
     return output
 
 def other_query(url_add,park_name,limit):
