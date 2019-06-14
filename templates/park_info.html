@@ -30,6 +30,8 @@
               <div class ="content"><div class="c"><p>{{weatherInfo}}</p></div><footer class="f">Weather Info</footer></div>
             <button class="collapsible">Directions to Park</button>
               <div class="content"><div class="c"><p>{{directionsInfo}} <a href="{{directionsUrl}}">({{directionsUrl}})</a></p></div><footer class="f">Directions</footer></div>
+            <button class="collapsible">Entrance Fees</button>
+              <div class="content"><div class="c"><p>{{entrance_cost}}<br>{{entrance_description}}<br>{{passes}}</p></div><footer class="f">Entrance Fees</footer></div>
             <button class="collapsible">Nearby Campgrounds</button>
               <div class="content">
                 {%if campgrounds == "none"%}
