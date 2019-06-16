@@ -1,0 +1,69 @@
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  color: #033CD1;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 65%;
+}
+
+
+.active, .btn:hover {
+  background-color: #0B4EFC;
+  color: white;
+  border-radius: 65%;
+}
+#navbar1{
+    overflow: hidden;
+    width: 100%;
+    float: left;
+    font-size: 30px;
+    color: #426e2b;
+    padding: 5px, 5px;
+    text-decoration: none;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.parks {
+  color: #033CD1;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+
+.parks:hover{
+  color: #0B4EFC;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 400px;
+}
+
+.park_container{
+  column-count: 2;
+  width:90%;
+  padding-left: 10%;
+}
+.currentLetter{
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: center;
+  background-color: #0B4EFC;
+  width: 90%;
+  margin-top: 25px;
+  padding-top:25px;
+  padding-bottom:25px;
+  color: ghostwhite;
+  text-shadow: -1px -1px 0 #033CD1, 1px -1px 0 #033CD1, -1px 1px 0 #033CD1, 1px 1px 0 #033CD1;
+}
