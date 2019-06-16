@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 import urllib.request, json
-import requests
 import requests_cache
 from datetime import datetime, timedelta
 
