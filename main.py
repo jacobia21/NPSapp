@@ -4,8 +4,6 @@ import json
 import requests
 
 
-
-
 HEADERS = {
     'User-Agent': "PostmanRuntime/7.13.0",
     'Accept': "*/*",
@@ -476,4 +474,3 @@ states = {'AK': 'Alaska',
         'WI': 'Wisconsin',
         'WV': 'West Virginia',
         'WY': 'Wyoming'}
-
