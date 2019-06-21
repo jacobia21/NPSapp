@@ -315,6 +315,3 @@ def park_info(park_name =""):
         return render_template("/park_info.html",park_code=park_code,name=park_name,designation=designation,description=description,directionsInfo = directionsInfo,
         directionsUrl= directionsUrl,url=url,weatherInfo=weatherInfo,visitor_centers = vc_info,monday=monday,tuesday=tuesday,wednesday=wednesday,thursday=thursday,
         friday=friday,saturday=saturday,sunday=sunday,image=image,caption=img_caption,campgrounds=campgrounds,entrance_cost = entrance_cost,entrance_description=entrance_description,passes=entrance_passes)
-
-if __name__=='__main__':
-    app.run()
