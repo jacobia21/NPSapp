@@ -15,7 +15,7 @@ HEADERS = {
     'cache-control': "no-cache"
 }
 
-app = Flask(__name__)
+app_app = Flask(__name__)
 print(app)
 @app.route('/')
 def home():
