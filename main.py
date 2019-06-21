@@ -1,7 +1,5 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-import json
-import requests
 from lists import parks, states
 from queries import *
 
