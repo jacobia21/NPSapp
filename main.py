@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 import json
 import requests
+from lists import parks, states
 
 
 HEADERS = {
@@ -40,8 +41,8 @@ def interactive_map():
 def state_list_homepage():
     return render_template("state_list_homepage.html")
 
-@app.route('/parks_by_state',methods=['GET','POST'])
-@app.route('/parks_by_state/<state_code>',methods = ['GET','POST'])
+@app.route('/iparks_by_state',methods=['GET','POST'])
+@app.route('/iparks_by_state/<state_code>',methods = ['GET','POST'])
 def state_list(state_code):
     state_code = state_code.replace('"', '')
     if state_code is "":
@@ -54,7 +55,7 @@ def state_list(state_code):
         state_code=state_code.upper().lstrip()
         state = states[state_code]
 
-        return render_template("/parks_by_state.html",output=output,state=state,state_code=state_code)
+        return render_template("/iparks_by_state.html",output=output,state=state,state_code=state_code)
 
 
 @app.route('/designation',methods=['GET','POST'])
@@ -274,8 +275,7 @@ def education(park_name = ""):
 def name_list(alphabetChar):
     alphabetChar = alphabetChar.replace('"','')
     output = []
-    list = open("/static/names.txt","r")
-    names = list.readlines()
+    names = parks
     for name in names:
         if(name.startswith(alphabetChar)):
             output.append(name)
@@ -414,63 +414,3 @@ def designation_query(query):
     json_response = json.loads(response.text)
 
     return json_response
-
-
-states = {'AK': 'Alaska',
-        'AL': 'Alabama',
-        'AR': 'Arkansas',
-        'AS': 'American Samoa',
-        'AZ': 'Arizona',
-        'CA': 'California',
-        'CO': 'Colorado',
-        'CT': 'Connecticut',
-        'DC': 'District of Columbia',
-        'DE': 'Delaware',
-        'FL': 'Florida',
-        'GA': 'Georgia',
-        'GU': 'Guam',
-        'HI': 'Hawaii',
-        'IA': 'Iowa',
-        'ID': 'Idaho',
-        'IL': 'Illinois',
-        'IN': 'Indiana',
-        'KS': 'Kansas',
-        'KY': 'Kentucky',
-        'LA': 'Louisiana',
-        'MA': 'Massachusetts',
-        'MD': 'Maryland',
-        'ME': 'Maine',
-        'MI': 'Michigan',
-        'MN': 'Minnesota',
-        'MO': 'Missouri',
-        'MP': 'Northern Mariana Islands',
-        'MS': 'Mississippi',
-        'MT': 'Montana',
-        'NA': 'National',
-        'NC': 'North Carolina',
-        'ND': 'North Dakota',
-        'NE': 'Nebraska',
-        'NH': 'New Hampshire',
-        'NJ': 'New Jersey',
-        'NM': 'New Mexico',
-        'NV': 'Nevada',
-        'NY': 'New York',
-        'OH': 'Ohio',
-        'OK': 'Oklahoma',
-        'OR': 'Oregon',
-        'PA': 'Pennsylvania',
-        'PR': 'Puerto Rico',
-        'RI': 'Rhode Island',
-        'SC': 'South Carolina',
-        'SD': 'South Dakota',
-        'TN': 'Tennessee',
-        'TX': 'Texas',
-        'UT': 'Utah',
-        'VA': 'Virginia',
-        'VI': 'Virgin Islands',
-        'VT': 'Vermont',
-        'WA': 'Washington',
-        'WI': 'Wisconsin',
-        'WV': 'West Virginia',
-        'WY': 'Wyoming'}
-

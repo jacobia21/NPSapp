@@ -1,4 +1,4 @@
-park_names =['Abraham Lincoln Birthplace National Historical Park',
+parks =['Abraham Lincoln Birthplace National Historical Park',
 'Acadia National Park',
 'Adams National Historical Park',
 'African American Civil War Memorial',
