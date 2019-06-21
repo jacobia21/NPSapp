@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request
-import urllib.request, json
+from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
+import json
 import requests
-import requests_cache
-from datetime import datetime, timedelta
 
-requests_cache.install_cache('demo_cache')
+
+
+
 HEADERS = {
     'User-Agent': "PostmanRuntime/7.13.0",
     'Accept': "*/*",
@@ -17,6 +18,18 @@ HEADERS = {
 }
 
 app = Flask(__name__)
+app.config["DEBUG"] = True
+
+SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://:{password}@{hostname}/{databasename}".format(
+    username="jacobia",
+    password="44Eagles!",
+    hostname="jacobia.mysql.pythonanywhere-services.com",
+    databasename="jacobia$NPS-database",
+)
+app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
+app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+db=SQLAlchemy(app)
 
 @app.route('/')
 def home():
