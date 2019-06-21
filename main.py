@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 import json
 import requests
+import names
 
 
 HEADERS = {
@@ -275,9 +276,7 @@ def name_list(alphabetChar):
     alphabetChar = alphabetChar.replace('"','')
     json_response = parks_query("","")
     output = []
-    list = open("names.txt","r")
-    names = list.readlines()
-    for name in names:
+    for name in PARK_NAMES:
         if(name.startswith(alphabetChar)):
             output.append(name)
     return render_template("/name_list.html",output=output,letter = alphabetChar)
@@ -474,5 +473,3 @@ states = {'AK': 'Alaska',
         'WI': 'Wisconsin',
         'WV': 'West Virginia',
         'WY': 'Wyoming'}
-if __name__=='__main__':
-    app.run()
