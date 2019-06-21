@@ -275,10 +275,10 @@ def name_list(alphabetChar):
     alphabetChar = alphabetChar.replace('"','')
     json_response = parks_query("","")
     output = []
-    for i in range(0,495):
-        name = json_response['data'][i]['fullName']
-        name = name.replace('"','')
-        if name.startswith(alphabetChar):
+    list = open("names.txt","r")
+    names = list.readlines()
+    for name in names:
+        if(name.startswith(alphabetChar)):
             output.append(name)
     return render_template("/name_list.html",output=output,letter = alphabetChar)
 
@@ -474,3 +474,5 @@ states = {'AK': 'Alaska',
         'WI': 'Wisconsin',
         'WV': 'West Virginia',
         'WY': 'Wyoming'}
+if __name__=='__main__':
+    app.run()
