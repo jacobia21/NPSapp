@@ -1,7 +1,5 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-import json
-import requests
 from lists import parks, states
 from queries import *
 
@@ -70,7 +68,7 @@ def alerts(park_name = ""):
     else:
         url_add ="alerts"
         park_name = park_name.replace('"', '')
-        json_response = other_query(url_add,park_name,50)
+        json_response = other_query(url_add,park_name)
         titles = []
         description = []
         category = []
@@ -81,7 +79,7 @@ def alerts(park_name = ""):
             num = int(json_response['total'])
             if(num > 50):
                 num = 50
-            for x in range(0,num):
+            for x in range(0,num-1):
                 titles.append(json_response['data'][x]['title'])
                 description.append(json_response['data'][x]['description'])
                 category.append(json_response['data'][x]['category'])
@@ -104,13 +102,8 @@ def articles(park_name = ""):
     if(park_name == ""):
         return render_template("/articles.html",homepage=True)
     else:
-        url_add ="articles"
         park_name = park_name.replace('"', '')
-        json_response = other_query(url_add,park_name,50)
-        if(int(json_response['total']) > 50):
-            num = 50
-        else:
-            num = int(json_response['total'])
+        json_response = other_query("articles",park_name)
 
         if(int(json_response['total']) == 0):
             output = "Currently no articles related to this park"
@@ -120,7 +113,9 @@ def articles(park_name = ""):
             listingdescriptions = []
             listingimages = []
             urls =[]
-
+            num = int(json_response['total'])
+            if(num > 50):
+                num = 50
             for i in range(0,num-1):
                 titles.append(json_response['data'][i]['title'])
                 listingdescriptions.append(json_response['data'][i]['listingdescription'])
@@ -142,7 +137,7 @@ def events(park_name = ""):
     else:
         url_add ="events"
         park_name = park_name.replace('"', '')
-        json_response = other_query(url_add,park_name,0)
+        json_response = other_query(url_add,park_name)
         titles = []
         description = []
         contact_name = []
@@ -160,7 +155,10 @@ def events(park_name = ""):
         if(int(json_response['total'])==0):
             return render_template("events.html",string=("Currently no events for this park"),no_events = True,park=park_name)
         else:
-            for x in range(0,int(json_response['total'])):
+            num = int(json_response['total'])
+            if(num > 50):
+                num = 50
+            for x in range(0,num-1):
                 titles.append(json_response['data'][x]['title'])
                 #descriptions from api had paragraph and strong tags in response, these lines remove them
                 des = json_response['data'][x]['description']
@@ -208,7 +206,7 @@ def news_releases(park_name = ""):
     else:
         url_add ="newsreleases"
         park_name = park_name.replace('"', '')
-        json_response = other_query(url_add,park_name,0)
+        json_response = other_query(url_add,park_name)
         titles = []
         release_dates= []
         images= []
@@ -220,7 +218,7 @@ def news_releases(park_name = ""):
             num = int(json_response['total'])
             if(num > 50):
                 num = 50
-            for x in range(0,num):
+            for x in range(0,num-1):
                 titles.append(json_response['data'][x]['title'])
                 release_dates.append(json_response['data'][x]['releasedate'])
                 if(json_response['data'][x]['image']['url'] == ""):
@@ -239,7 +237,7 @@ def education(park_name = ""):
     else:
         url_add ="lessonplans"
         park_name = park_name.replace('"', '')
-        json_response = other_query(url_add,park_name,0)
+        json_response = other_query(url_add,park_name)
         titles = []
         subjects= []
         grade_levels= []
@@ -252,7 +250,7 @@ def education(park_name = ""):
             num = int(json_response['total'])
             if(num > 50):
                 num = 50
-            for x in range(0,num):
+            for x in range(0,num-1):
                 titles.append(json_response['data'][x]['title'])
                 subjects.append(json_response['data'][x]['subject'])
                 grade_levels.append(json_response['data'][x]['gradelevel'])
