@@ -18,7 +18,6 @@ HEADERS = {
 }
 
 app = Flask(__name__)
-app.config["DEBUG"] = True
 
 SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://:{password}@{hostname}/{databasename}".format(
     username="jacobia",
@@ -478,5 +477,3 @@ states = {'AK': 'Alaska',
         'WV': 'West Virginia',
         'WY': 'Wyoming'}
 
-if __name__ == '__main__':
-        app.run(debug=True)
