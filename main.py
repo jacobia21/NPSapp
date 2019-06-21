@@ -193,7 +193,7 @@ def events(park_name = ""):
                     contact_number.append("")
 
                 if(json_response['data'][x]['recurrencedateend'] is "true"):
-                    recurence_date_end.append(json_response['data'][x]['recurencedateend'])
+                    recurrence_date_end.append(json_response['data'][x]['recurencedateend'])
                 else:
                     recurrence_date_end.append("Not a recurring event")
 
@@ -273,9 +273,8 @@ def education(park_name = ""):
 @app.route('/name_list/<alphabetChar>',methods=['GET','POST'])
 def name_list(alphabetChar):
     alphabetChar = alphabetChar.replace('"','')
-    json_response = parks_query("","")
     output = []
-    list = open("names.txt","r")
+    list = open("/static/names.txt","r")
     names = list.readlines()
     for name in names:
         if(name.startswith(alphabetChar)):
@@ -474,5 +473,4 @@ states = {'AK': 'Alaska',
         'WI': 'Wisconsin',
         'WV': 'West Virginia',
         'WY': 'Wyoming'}
-if __name__=='__main__':
-    app.run()
+
