@@ -75,15 +75,13 @@ def campgrounds_query(park_code):
         output = zip(titles,descriptions,regulations,campsites,directions)
     return output
 
-def other_query(url_add,park_name,limit):
+def other_query(url_add,park_name):
     url = "https://developer.nps.gov/api/v1/" + url_add
-    if (limit == 0):
-        querystring = {"q":park_name,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
-    else:
-        querystring = {"limit":limit,"q":park_name,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
+    querystring = {"q":park_name,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
     response = requests.request("GET", url, headers=HEADERS, params=querystring)
     json_response = json.loads(response.text)
     return json_response
+    
 def designation_query(query):
     url = "https://developer.nps.gov/api/v1/parks"
 
