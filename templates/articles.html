@@ -14,12 +14,12 @@
         <div class="links">
           <a  href="{{url_for('articles')}}">Articles Homepage</a>
           <h1 id="page_header">{{park}}</h1>
-            <a id="page_header" href="{{url_for('park_info',park_name="{{park}}"}}">Info Page</a>
-            <a id="page_header" href="{{url_for('alerts',park_name="{{park}}>}}"Alerts</a>
-            <a id="page_header" href="{{url_for('articles',park_name="{{park}}"}}">Articles</a>
-            <a id="page_header" href="{{url_for('events',park_name="{{park}}>}}"Events</a>
-            <a id="page_header" href="{{url_for('news_releases',park_name="{{park}}"}}">News Releases</a>
-            <a id="page_header" href="{{url_for('education',park_name="{{park}}>}}"Educational Resources</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
         </div>
           <h1 class="string">{{string}}</h1>
         {%else%}
@@ -27,12 +27,12 @@
         <div class="links">
           <a  href="{{url_for('articles')}}">Articles Homepage</a>
           <h1 id="page_header">{{park}}</h1>
-            <a id="page_header" href="{{url_for('park_info',park_name="{{park}}"}}">Info Page</a>
-            <a id="page_header" href="{{url_for('alerts',park_name="{{park}}>}}"Alerts</a>
-            <a id="page_header" href="{{url_for('articles',park_name="{{park}}"}}">Articles</a>
-            <a id="page_header" href="{{url_for('events',park_name="{{park}}>}}"Events</a>
-            <a id="page_header" href="{{url_for('news_releases',park_name="{{park}}"}}">News Releases</a>
-            <a id="page_header" href="{{url_for('education',park_name="{{park}}>}}"Educational Resources</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
         </div>
         <div class="items">
           {%for titles,listingdescriptions,listingimages,urls in articles%}
