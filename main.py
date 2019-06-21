@@ -15,7 +15,7 @@ HEADERS = {
     'cache-control': "no-cache"
 }
 
-app_app = Flask(__name__)
+app = Flask(__name__)
 print(app)
 @app.route('/')
 def home():
@@ -463,3 +463,6 @@ states = {'AK': 'Alaska',
         'WI': 'Wisconsin',
         'WV': 'West Virginia',
         'WY': 'Wyoming'}
+
+if __name__ == '__main__':
+        app.run(debug=True)
