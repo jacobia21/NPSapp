@@ -7,51 +7,58 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </head>
   <body>
-      {% extends "template.html" %}
-      {%block content %}
-      {%if homepage%}
-        <h1>Events Homepage</h1>
-      {%elif no_events%}
-      <div class="links">
-        <a  href="{{url_for('events')}}">Events Homepage</a>
-        <h1 id="page_header">{{park}}</h1>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
-      </div>
-        <h1 class="string">{{string}}</h1>
-      {%else%}
+        {% extends "template.html" %}
+        {%block content %}
 
-      <div class="links">
-        <a  href="{{url_for('events')}}">Events Homepage</a>
-        <h1 id="page_header">{{park}}</h1>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
-      </div>
-      <div class="items">
-        {%for titles, description,category,date_start,recurrence_date_end,fees_info,regres_info,timestart,timeend,urls in events%}
-          <div class="item">
-            <button class="collapsible" id ="items"><h3>{{titles}}</h3><br><h4>Category: {{category}}</h4></button>
-            <div class="content">
-              {{description}}
-              <h3>{{date_start}}</h3>
-              <h3>{{recurrence_date_end}}</h3>
-              <h3>{{fees_info}}</h3>
-              <h3>{{regres_info}}</h3>
-              <h3>{{timestart}} to {{timeend}}</h3>
-              <h3>{{urls}}</h3>
+        {%if homepage%}
+            <h1>Events Homepage</h1>
+
+        {%elif no_events%}
+            <div class="links">
+                <a  href="{{url_for('events')}}">Events Homepage</a>
+                <h1 id="page_header">{{park}}</h1>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
             </div>
-          </div>
-        {%endfor%}
-      </div>
-      {%endif%}
+            <h1 class="string">{{string}}</h1>
+        {%else%}
+
+            <div class="links">
+                <a  href="{{url_for('events')}}">Events Homepage</a>
+                <h1 id="page_header">{{park}}</h1>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
+            </div>
+
+            <div class="items">
+                {%for titles,locations, description,category,date_start,recurrence_date_end,fees_info,regres_info,timestart,timeend in events%}
+                        <h1 id ="header" style="margin-right:50px;margin-left:50px;">{{titles}}: {{category}}</h1>
+                            <div class="event_content">
+                                <p class = "event_description">Location: {{locations}} <br><br>{{description}}</p>
+                                <div class="event_other">
+                                <h2>{{date_start}} {%if recurrence_date_end == "Not a recurring event"%}: {{recurrence_date_end}} {%else%}to {{recurrence_date_end}} {%endif%}</h2>
+                                <h2>{{timestart}} to {{timeend}}</h2>
+                                <h2>Fees: {{fees_info}}</h2>
+                                {% if regres_info == ""%}
+                                    <h2>Registration: N/A</h2>
+                                {%else%}
+                                <h2>Registration: {{regres_info}}</h2>
+                                {% endif %}
+                            </div>
+                        </div>
+
+
+                {%endfor%}
+            </div>
+        {%endif%}
 
       {% endblock %}
 

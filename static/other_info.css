@@ -1,48 +1,10 @@
-/* Style the button that is used to open and close the collapsible content */
-.collapsible {
-  background-color: #03A3D1;
-  color: white;
-  cursor: pointer;
-  padding: 18px;
-  width: 80%;
-  border: 5px solid #03A3D1;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  text-align: center;
-  outline: none;
-  font-size: 15px;
-  margin-left: 10%;
-  margin-right: 10%
-}
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.collapsible:hover h3{
-  color: #033CD1;
-}
-.collapsible h4{
-  color:black;
-}
-.active{
-  background-color: #03A3D1;
-  color: #033CD1;
-}
-.items{
-  margin-top: 50px;
-  display:flex;
-  flex-direction: row;
-  flex-wrap:wrap;
-}
-.item{
-  margin-bottom: 20px;
-  width: 50%;
-}
-
 .string{
   margin: 15%;
   text-align: center;
 }
 .links{
       border-bottom: 3px solid white;
+      height: 125px;
 }
 .links #page_header{
     margin-left: 20px;
@@ -57,81 +19,106 @@
 
 }
 .links a:hover{
-  color: #033CD1;
+  color:ghostwhite;
 }
 
-#items{
-  width:70%;
-}
-.content img{
-  width: 50%;
-  height: 50%;
-}
-.content{
-  padding-top: 3%;
-  padding-bottom: 10px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-  text-align: center;
-  width: 68%;
-  border: 5px solid #03A3D1;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  height: 400px;
-  margin-left: 10%;
-  margin-right: 10%;
-}
 
-.releases{
-  margin-top: 20px;
-  margin-bottom: 1000px;
-}
-.release{
-
-  background-color: white;
-  border: 3px solid blue;
-  border-radius: 5px;
-  width: 45%;
-  height: 500px;
-  margin-top: 20px;
-
-}
-.release:nth-child(odd){
-  float:left;
-  margin-left: 50px;
-}
-.release:nth-child(even){
-  float:right;
-  margin-right: 50px;
-}
-.release_header{
-  background-color: darkgray;
-  text-align: center;
-  overflow: hidden;
-  height:20%;
-  padding-top: 15px;
-}
-.release_header #title{
-  color:blue;
-  font-size: 20px;
-  text-decoration: none;
-}
-.release_header #date{
-  color: white;
-  font-size: 15px;
-}
-.release_content{
-  height:70%;
-  text-align: center;
-  padding: 10px;
-
-}
-.release_content img{
-  width:50%;
-  height:50%;
-  padding-top: 20px;
-}
 #instruction{
   text-align: center;
+}
+
+.legend{
+    display:flex;
+    flex-direction:column;
+    background-color: #03A3D1;
+    width: 300px;
+    float:right;
+}
+#litem{
+    margin:auto;
+
+}
+.alerts_link{float:left;}
+.alerts{padding-top:50px;}
+.alert{
+    margin-left:50px;
+    margin-right: 50px;
+    padding-bottom:20px;
+}
+.alerts_header{
+    border-bottom: 3px solid #033CD1;
+    border-top: 3px solid #033CD1;
+    background-color: ghostwhite;
+    text-align:center;
+    color:#033CD1;
+}
+.alerts_content{font-size:25px;text-align:center;}
+
+#header{
+    border-bottom: 3px solid #033CD1;
+    border-top: 3px solid #033CD1;
+    background-color: ghostwhite;
+    text-align:center;
+    color:#033CD1;
+}
+.items{
+    padding-top:50px;
+}
+.items a{
+    text-decoration:none;
+    color:#033CD1;
+}
+.item:hover{
+    background-color:ghostwhite;
+}
+
+.item{
+    margin-left:50px;
+    margin-right: 50px;
+    padding-bottom:20px;
+}
+
+.article_content{
+    display:flex;
+    margin:auto;
+    font-size: 25px;
+    text-align:center;
+}
+#tab{margin-left:40px;}
+.education_content{
+    font-size: 25px;
+}
+.event_content{
+    display:flex;
+    background-color:ghostwhite;
+    margin-bottom: 20px;
+    margin-left:50px;
+    margin-right: 50px;
+}
+.event_description{
+    margin:auto;
+    font-size: 30px;
+    text-align:center;
+    width: 60%;
+}
+.event_other{
+    padding-left: 10px;
+    border-left: 3px solid #033CD1;
+    width: 35%;
+}
+.release_content{
+  display:flex;
+  padding-top:15px;
+
+}
+#release_description{
+    width:45%;
+    text-align:center;
+    font-size: 30px;
+    padding-right: 10px;
+}
+.release_content img{
+  width:45%;
+  height:50%;
+  padding-top: 20px;
 }

@@ -1,55 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>National Park Service Information Center</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='other_info.css') }}">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  </head>
-  <body>
-      {% extends "template.html" %}
-      {%block content %}
-      {%if homepage%}
+    <head>
+        <meta charset="utf-8">
+        <title>National Park Service Information Center</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='other_info.css') }}">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    </head>
+    <body>
+        {% extends "template.html" %}
+        {%block content %}
+
+        {%if homepage%}
         <h1>Educational Resources Homepage</h1>
-      {%elif no_%}
-      <div class="links">
-        <a  href="{{url_for('education')}}">Educational Resources Homepage</a>
-        <h1 id="page_header">{{park}}</h1>
-            <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
-            <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
-            <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
-            <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
-            <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
-            <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
-      </div>
-        <h1 class="string">{{string}}</h1>
-      {%else%}
 
-      <div class="links">
-        <a  href="{{url_for('education')}}">Educational Resources Homepage</a>
-        <h1 id="page_header">{{park}}</h1>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
-      </div>
-      <div class="items">
-        {%for title,subject,grade_level,question_objective,duration,url in lesson_plans%}
-          <div class="resource">
-            <h1>{{title}}</h1>
-            <p>
-              Subject: {{subject}}<br>
-              Question Objective: {{question_objective}}<br>
-              Targeted Grade Level: {{grade_level}}<br>
-              Estimated Lesson Duration: {{duration}}<br>
-              For full lesson plan, visit: {{url}}
-        {%endfor%}
-      </div>
-      {%endif%}
+        {%elif no_resources%}
+            <div class="links">
+                <a  href="{{url_for('education')}}">Educational Resources Homepage</a>
+                <h1 id="page_header">{{park}}</h1>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
+            </div>
+            <h1 class="string">{{string}}</h1>
+        {%else%}
 
-      {% endblock %}
+            <div class="links">
+                <a  href="{{url_for('education')}}">Educational Resources Homepage</a>
+                <h1 id="page_header">{{park}}</h1>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
+            </div>
+
+            <div class="items">
+                <h1 id="instruction">Click any resource to view full information</h1>
+                {%for title,subject,grade_level,question_objective,duration,url in lesson_plans%}
+                    <a href="{{url}}">
+                        <div class="item">
+                            <h1 id = "header">{{title}}</h1>
+                            <div class = education_content>
+                              <h4><b>Subject</b></h4><p id = "tab">{{subject}}</p>
+                              <h4><b>Question Objective</b></h4><p id = "tab">{{question_objective}}</p>
+                              <h4><b>Targeted Grade Level</b></h4><p id = "tab">{{grade_level}}</p>
+                              <h4><b>Estimated Lesson Duration</b></h4><p id = "tab">{{duration}}</p>
+                            </div>
+                        </div>
+                    </a>
+                {%endfor%}
+            </div>
+        {%endif%}
+
+    {% endblock %}
 
   </body>
 </html>

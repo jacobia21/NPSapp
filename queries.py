@@ -81,7 +81,7 @@ def other_query(url_add,park_name):
     response = requests.request("GET", url, headers=HEADERS, params=querystring)
     json_response = json.loads(response.text)
     return json_response
-    
+
 def designation_query(query):
     url = "https://developer.nps.gov/api/v1/parks"
 

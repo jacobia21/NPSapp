@@ -57,7 +57,8 @@ def designation(designation = ""):
         output=[]
         for x in range(0,int(json_response['total'])-1):
             output.append(json_response['data'][x]['fullName'])
-
+        if designation == "National Cemetery":
+            designation = "National Cemeterie"
         return render_template("/designation.html",output=output,designation = designation)
 
 @app.route('/alerts',methods=['GET','POST'])
@@ -71,29 +72,30 @@ def alerts(park_name = ""):
         json_response = other_query(url_add,park_name)
         titles = []
         description = []
-        category = []
         symbols = []
         if(int(json_response['total'])==0):
             return render_template("alerts.html",string=("Currently no Alerts for this park"),no_center=True,park=park_name)
         else:
             num = int(json_response['total'])
+            if num == 1:
+                num =2
             if(num > 50):
                 num = 50
             for x in range(0,num-1):
                 titles.append(json_response['data'][x]['title'])
                 description.append(json_response['data'][x]['description'])
-                category.append(json_response['data'][x]['category'])
-                if(category[x] == 'Danger'):
+                category = json_response['data'][x]['category']
+                if(category == 'Danger'):
                     symbols.append("danger.png")
-                elif(category[x] == 'Caution'):
+                elif(category == 'Caution'):
                     symbols.append("caution_symbol.png")
-                elif(category[x] == 'Park Closure'):
+                elif(category == 'Park Closure'):
                     symbols.append("closure.png")
-                elif(category[x] == 'Information'):
+                elif(category == 'Information'):
                     symbols.append("info.png")
                 else:
                     symbols.append("https://federalnewsnetwork.com/wp-content/uploads/2019/05/cropped-7E9AE9B6-1DD8-B71B-0BD2CA3A36AEBEC4-1.png")
-            return render_template("alerts.html",alerts=zip(titles, description,category,symbols),park=park_name)
+            return render_template("alerts.html",alerts=zip(titles, description,symbols),park=park_name)
 
 
 @app.route('/articles.html', methods = ['GET','POST'])
@@ -114,6 +116,8 @@ def articles(park_name = ""):
             listingimages = []
             urls =[]
             num = int(json_response['total'])
+            if num == 1:
+                num =2
             if(num > 50):
                 num = 50
             for i in range(0,num-1):
@@ -139,10 +143,8 @@ def events(park_name = ""):
         park_name = park_name.replace('"', '')
         json_response = other_query(url_add,park_name)
         titles = []
+        locations = []
         description = []
-        contact_name = []
-        contact_email = []
-        contact_number = []
         category = []
         date_start = []
         recurrence_date_end = []
@@ -150,53 +152,53 @@ def events(park_name = ""):
         fees_info = []
         timestart = []
         timeend = []
-        urls = []
 
         if(int(json_response['total'])==0):
             return render_template("events.html",string=("Currently no events for this park"),no_events = True,park=park_name)
         else:
-            num = int(json_response['total'])
-            if(num > 50):
-                num = 50
+            num = 10
+            if (int(json_response['total']) < 10):
+                num = int(json_response['total'])
+            if (num ==1):
+                num =2
             for x in range(0,num-1):
                 titles.append(json_response['data'][x]['title'])
+                if json_response['data'][x]['location'] == "":
+                    locations.append("N/A")
+                else:
+                    locations.append(json_response['data'][x]['location'])
                 #descriptions from api had paragraph and strong tags in response, these lines remove them
                 des = json_response['data'][x]['description']
                 des = des.replace("<p>",'')
                 des = des.replace("</p>",'')
                 des = des.replace("<strong>.</strong></p>",'.')
+                des = des.replace("<strong>.</strong>",'.')
+                des = des.replace("<em>",'')
+                des = des.replace("</em>",'')
                 description.append(des)
 
                 category.append(json_response['data'][x]['category'])
                 date_start.append(json_response['data'][x]['datestart'])
                 timestart.append(json_response['data'][x]['times'][0]['timestart'])
                 timeend.append(json_response['data'][x]['times'][0]['timeend'])
-                urls.append(json_response['data'][x]['infourl'])
-                if(json_response['data'][x]['contactname'] is not ""):
-                    contact_name.append(json_response['data'][x]['contactname'])
-                    contact_email.append(json_response['data'][x]['contactemailaddress'])
-                    contact_number.append(json_response['data'][x]['contacttelephonenumber'])
-                else:
-                    contact_name.append("No contact given")
-                    contact_email.append("")
-                    contact_number.append("")
 
-                if(json_response['data'][x]['recurrencedateend'] is "true"):
-                    recurrence_date_end.append(json_response['data'][x]['recurencedateend'])
+
+                if(json_response['data'][x]['isrecurring'] == "true"):
+                    recurrence_date_end.append(json_response['data'][x]['recurrencedateend'])
                 else:
                     recurrence_date_end.append("Not a recurring event")
 
-                if(json_response['data'][x]['isfree'] is "true"):
-                    fees_info.append(json_response['data'][x]['feesinfo'])
+                if(json_response['data'][x]['isfree'] == "false"):
+                    fees_info.append(json_response['data'][x]['feeinfo'])
                 else:
                     fees_info.append("No fees Required")
 
-                if(json_response['data'][x]['isregresrequired'] is "true"):
+                if(json_response['data'][x]['isregresrequired'] == "true"):
                     regres_info.append(json_response['data'][x]['regresinfo'])
                 else:
                     regres_info.append("No registration required")
-                contact_info = zip(contact_name, contact_email, contact_number)
-                return render_template("events.html",events=zip(titles, description,category,date_start,recurrence_date_end,fees_info,regres_info,timestart,timeend,urls),park=park_name)
+
+            return render_template("events.html",events=zip(titles,locations, description,category,date_start,recurrence_date_end,fees_info,regres_info,timestart,timeend),park=park_name)
 
 @app.route('/news_releases.html')
 @app.route('/news_releases/<park_name>',methods = ['GET','POST'])
@@ -216,6 +218,8 @@ def news_releases(park_name = ""):
             return render_template("news_releases.html",string=("Currently no News Releases for this park"),no_releases=True,park= park_name)
         else:
             num = int(json_response['total'])
+            if num == 1:
+                num=2
             if(num > 50):
                 num = 50
             for x in range(0,num-1):
@@ -233,22 +237,25 @@ def news_releases(park_name = ""):
 @app.route('/education/<park_name>',methods = ['GET','POST'])
 def education(park_name = ""):
     if(park_name == ""):
-        return render_template("/education.html",homepage=True)
+        return render_template("education.html",homepage=True)
     else:
         url_add ="lessonplans"
         park_name = park_name.replace('"', '')
         json_response = other_query(url_add,park_name)
-        titles = []
-        subjects= []
-        grade_levels= []
-        question_objectives = []
-        durations = []
-        urls = []
         if(int(json_response['total'])==0):
             return render_template("education.html",string=("Currently no News Releases for this park"),no_resources=True,park= park_name)
         else:
+            titles = []
+            subjects= []
+            grade_levels= []
+            question_objectives = []
+            durations = []
+            urls = []
+
             num = int(json_response['total'])
-            if(num > 50):
+            if num == 1:
+                num =2
+            if num > 50:
                 num = 50
             for x in range(0,num-1):
                 titles.append(json_response['data'][x]['title'])
@@ -259,6 +266,7 @@ def education(park_name = ""):
                 urls.append(json_response['data'][x]['url'])
 
             return render_template("education.html",lesson_plans=zip(titles,subjects,grade_levels,question_objectives,durations,urls),park=park_name)
+
 @app.route('/name_list/<alphabetChar>',methods=['GET','POST'])
 def name_list(alphabetChar):
     alphabetChar = alphabetChar.replace('"','')
@@ -280,10 +288,13 @@ def park_info(park_name =""):
         directionsUrl = json_response['directionsUrl']
         url = json_response['url']
         weatherInfo = json_response['weatherInfo']
-        entrance_cost = json_response['entranceFees'][0]['cost'].replace("0000","00")
-        entrance_description = json_response['entranceFees'][0]['description']
-        #print(entrance_fees['cost'].replace("0000","00"))
-
+        if(json_response['entranceFees']):
+            entrance_cost = json_response['entranceFees'][0]['cost'].replace("0000","00")
+            entrance_description = json_response['entranceFees'][0]['description']
+            #print(entrance_fees['cost'].replace("0000","00"))
+        else:
+            entrance_cost = "N/A"
+            entrance_description = ""
         try:
             entrance_passes = json_response['entrancePasses'][0]['description']
         except IndexError:

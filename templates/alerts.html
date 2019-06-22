@@ -7,48 +7,54 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </head>
   <body>
-      {% extends "template.html" %}
-      {%block content %}
-      {%if homepage%}
-        <h1>Alerts Homepage</h1>
-      {%elif no_center%}
-      <div class="links">
-        <a  href="{{url_for('alerts')}}">Alerts Homepage</a>
-        <h1 id="page_header">{{park}}</h1>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
-      </div>
+        {% extends "template.html" %}
+        {%block content %}
+        {%if homepage%}
+            <h1>Alerts Homepage</h1>
+        {%elif no_center%}
+        <div class="links">
+            <a  href="{{url_for('alerts')}}">Alerts Homepage</a>
+            <h1 id="page_header">{{park}}</h1>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
+            <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
+        </div>
+
         <h1 class="string">{{string}}</h1>
-      {%else%}
 
-      <div class="links">
-        <a  href="{{url_for('alerts')}}">Alerts Homepage</a>
-        <h1 id="page_header">{{park}}</h1>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
-        <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
-      </div>
-      <div class="items">
-        {%for title,description,category,symbols in alerts%}
-          <div class="item">
-            <button class="collapsible" id="items"><h3>{{title}}</h3><br><h4>Category: {{category}}</h4></button>
-            <div class="content">
-              <h3>{{description}}</h3>
-              <img src = "/static/{{symbols}}"></img>
+        {%else%}
+        <div class="links">
+            <div class="alerts_link">
+                <a  href="{{url_for('alerts')}}">Alerts Homepage</a>
+                <h1 id="page_header">{{park}}</h1>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
+                <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
             </div>
-          </div>
-        {%endfor%}
-      </div>
-      {%endif%}
+             <div class = legend>
+              <h2 id="litem"><img src = "/static/info.png" height= "25px" width ="25px">Informational</h2>
+              <h2 id="litem"><img src = "/static/closure.png" height= "25px" width ="25px">Park Closure</h2>
+              <h2 id="litem"><img src = "/static/danger.png" height= "25px" width ="25px">Danger Warning</h2>
+              <h2 id="litem"><img src = "/static/caution_symbol.png" height= "25px" width ="25px">Caution Warning</h2>
+            </div>
+        </div>
+        <div class="alerts">
+            {%for title,description,symbols in alerts%}
+                <div class = "alert">
+                <div class ="alerts_header"><h1><img src = "/static/{{symbols}}" height= "25px" width ="25px"></img>{{title}}</h1></div>
+                <p class ="alerts_content">{{description}}</p>
+                </div>
+            {%endfor%}
+         </div>
+        {%endif%}
 
-      {% endblock %}
+    {% endblock %}
 
   </body>
 </html>

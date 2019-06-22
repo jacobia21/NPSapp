@@ -33,19 +33,19 @@
             <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
             <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
         </div>
-        <h1 id="instruction">Click on any release title to view full release</h1>
-        <div class="releases">
+        <h1 id="instruction">Click on any release abstract to view full release</h1>
+        <div class="items">
           {%for titles,release_dates,images,urls,abstracts in releases%}
-            <div class="release">
-              <div class ="release_header">
-                <a href="{{urls}}" id ="title">{{titles}}</a>
-                <h2 id="date">Released: {{release_dates}}</h2>
-              </div>
-              <div class="release_content">
-                <p>{{abstracts}}</p>
-                <img src={{images}}></img>
-              </div>
-            </div>
+            <a href="{{urls}}">
+                <div class="item">
+                    <h1 id ="header">{{titles}}<br>Released: {{release_dates}}</h1>
+
+                    <div class="release_content">
+                        <p id = "release_description">{{abstracts}}</p>
+                        <img src={{images}}></img>
+                    </div>
+                </div>
+            </a>
           {%endfor%}
         </div>
       {%endif%}
