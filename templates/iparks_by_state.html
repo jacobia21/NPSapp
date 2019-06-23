@@ -1,78 +1,80 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>National Park Service Information Center</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='parks_by_state.css') }}">
-  </head>
-  <body>
-      {% extends "template.html" %}
-      {%block content %}
+    <head>
+        <meta charset="utf-8">
+        <title>National Park Service Information Center</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='parks_by_state.css') }}">
+    </head>
+    <body>
+        {% extends "template.html" %}
+        {%block content %}
 
-          <div class= "container">
-            <div class="map"><a href="{{url_for('interactive_map')}}">Click for Interactive Map</a></div>
+        <!-- title -->
+            <div class= "container">
+                <div class="map"> <a href="{{url_for('interactive_map')}}">Click for Interactive Map</a></div>
 
-            <h1 class="state">{{state}}</h1>
-            <div id="navbar1">
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;al&quot;"><button class="btn">AL</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ak&quot;"><button class="btn">AK</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;az&quot;"><button class="btn">AZ</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ca&quot;"><button class="btn">CA</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;co&quot;"><button class="btn">CO</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ct&quot;"><button class="btn">CT</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;de&quot;"><button class="btn">DE</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;dc&quot;"><button class="btn">DC</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;fl&quot;"><button class="btn">FL</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ga&quot;"><button class="btn">GA</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;hi&quot;"><button class="btn">HI</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;id&quot;"><button class="btn">ID</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;il&quot;"><button class="btn">IL</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;in&quot;"><button class="btn">IN</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ia&quot;"><button class="btn">IA</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ks&quot;"><button class="btn">KS</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ky&quot;"><button class="btn">KY</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;la&quot;"><button class="btn">LA</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;me&quot;"><button class="btn">ME</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;md&quot;"><button class="btn">MD</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ma&quot;"><button class="btn">MA</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;mi&quot;"><button class="btn">MI</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;mn&quot;"><button class="btn">MN</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ms&quot;"><button class="btn">MS</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;mo&quot;"><button class="btn">MO</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;mt&quot;"><button class="btn">MT</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ne&quot;"><button class="btn">NE</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;nv&quot;"><button class="btn">NV</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;nh&quot;"><button class="btn">NH</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;nj&quot;"><button class="btn">NJ</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;nm&quot;"><button class="btn">NM</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ny&quot;"><button class="btn">NY</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;nc&quot;"><button class="btn">NC</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;nd&quot;"><button class="btn">ND</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;oh&quot;"><button class="btn">OH</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ok&quot;"><button class="btn">OK</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;or&quot;"><button class="btn">OR</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;pa&quot;"><button class="btn">PA</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ri&quot;"><button class="btn">RI</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;sc&quot;"><button class="btn">SC</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;sd&quot;"><button class="btn">SD</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;tn&quot;"><button class="btn">TN</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;tx&quot;"><button class="btn">TX</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ut&quot;"><button class="btn">UT</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;vt&quot;"><button class="btn">VT</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;va&quot;"><button class="btn">VA</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;vi&quot;"><button class="btn">VI</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;wa&quot;"><button class="btn">WA</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;wv&quot;"><button class="btn">WV</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;wi&quot;"><button class="btn">WI</button></a>
-              <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;wy&quot;"><button class="btn">WY</button></a>
-
+            <!-- buttons to switch to parks in specific state -->
+                <h1 class="state">{{state}}</h1>
+                <div id="navbar1">
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;al&quot;"><button class="btn">AL</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ak&quot;"><button class="btn">AK</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;az&quot;"><button class="btn">AZ</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ca&quot;"><button class="btn">CA</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;co&quot;"><button class="btn">CO</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ct&quot;"><button class="btn">CT</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;de&quot;"><button class="btn">DE</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;dc&quot;"><button class="btn">DC</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;fl&quot;"><button class="btn">FL</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ga&quot;"><button class="btn">GA</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;hi&quot;"><button class="btn">HI</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;id&quot;"><button class="btn">ID</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;il&quot;"><button class="btn">IL</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;in&quot;"><button class="btn">IN</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ia&quot;"><button class="btn">IA</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ks&quot;"><button class="btn">KS</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ky&quot;"><button class="btn">KY</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;la&quot;"><button class="btn">LA</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;me&quot;"><button class="btn">ME</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;md&quot;"><button class="btn">MD</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ma&quot;"><button class="btn">MA</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;mi&quot;"><button class="btn">MI</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;mn&quot;"><button class="btn">MN</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ms&quot;"><button class="btn">MS</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;mo&quot;"><button class="btn">MO</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;mt&quot;"><button class="btn">MT</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ne&quot;"><button class="btn">NE</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;nv&quot;"><button class="btn">NV</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;nh&quot;"><button class="btn">NH</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;nj&quot;"><button class="btn">NJ</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;nm&quot;"><button class="btn">NM</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ny&quot;"><button class="btn">NY</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;nc&quot;"><button class="btn">NC</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;nd&quot;"><button class="btn">ND</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;oh&quot;"><button class="btn">OH</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ok&quot;"><button class="btn">OK</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;or&quot;"><button class="btn">OR</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;pa&quot;"><button class="btn">PA</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ri&quot;"><button class="btn">RI</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;sc&quot;"><button class="btn">SC</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;sd&quot;"><button class="btn">SD</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;tn&quot;"><button class="btn">TN</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;tx&quot;"><button class="btn">TX</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;ut&quot;"><button class="btn">UT</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;vt&quot;"><button class="btn">VT</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;va&quot;"><button class="btn">VA</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;vi&quot;"><button class="btn">VI</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;wa&quot;"><button class="btn">WA</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;wv&quot;"><button class="btn">WV</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;wi&quot;"><button class="btn">WI</button></a>
+                    <a href="http://jacobia.pythonanywhere.com/parks_by_state/&quot;wy&quot;"><button class="btn">WY</button></a>
+                </div>
+            <!-- parks in specified state -->
+                <div class = "park_container">
+                    {% for parks in output %}
+                        <ul><li class= "list"><a class = "parks" href="http://jacobia.pythonanywhere.com/park_info/{{parks}}"><tr>{{parks}}</tr><br></a></li></ul>
+                    {%endfor%}
+                </div>
             </div>
-            <div class = "park_container">
-            {% for parks in output %}
-                <ul><li class= "list"><a class = "parks" href="http://jacobia.pythonanywhere.com/park_info/{{parks}}"><tr>{{parks}}</tr><br></a></li></ul>
-            {%endfor%}
-            </div>
-          </div>
 
 
 

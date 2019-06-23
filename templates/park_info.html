@@ -1,84 +1,92 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>National Park Service Information Center</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='park_info.css') }}">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  </head>
-  <body>
+    <head>
+        <meta charset="utf-8">
+        <title>National Park Service Information Center</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='park_info.css') }}">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    </head>
+    <body>
 
-      {% extends "template.html" %}
-      {%block content %}
+        {% extends "template.html" %}
+        {%block content %}
 
-      <section class = "container">
-        <div class = "park">
-          <div class = "park_header">
-            <h2>{{name}}</h2>
-            <h3>{{designation}}</h3><br>
-          </div>
-          <div class="image">
-            <img src="{{image}}"></img><br>
-            <h4 class="caption">{{caption}}</h4>
-          </div>
-          <div class="info_instruction"><h2>Click a tab view information</h2></div>
-          <div class="park_content">
-            <div class="park_info">
-              <button class="collapsible">Description </button>
-              <div class="content"><div class="c"><p>{{description}}</p></div><footer class="f">Description</footer></div>
-            <button class="collapsible">Weather</button>
-              <div class ="content"><div class="c"><p>{{weatherInfo}}</p></div><footer class="f">Weather Info</footer></div>
-            <button class="collapsible">Directions to Park</button>
-              <div class="content"><div class="c"><p>{{directionsInfo}} <a href="{{directionsUrl}}">({{directionsUrl}})</a></p></div><footer class="f">Directions</footer></div>
-            <button class="collapsible">Entrance Fees</button>
-              <div class="content"><div class="c"><p>{{entrance_cost}}<br>{{entrance_description}}<br>{{passes}}</p></div><footer class="f">Entrance Fees</footer></div>
-        </div>
-        </div>
-        </div>
-        <div class="right">
-        <div class="containers">
-          <h2 class="header">Operating Hours</h2>
-          <div class="body">
-            <h4>Monday: {{monday}}</h4><br>
-            <h4>Tuesday: {{tuesday}}</h4><br>
-            <h4>Wednesday: {{wednesday}}</h4><br>
-            <h4>Thursday: {{thursday}}</h4><br>
-            <h4>Friday: {{friday}}</h4><br>
-            <h4>Saturday: {{saturday}}</h4><br>
-            <h4>Sunday: {{sunday}}</h4><br>
-          </div>
-        </div>
-          <div class="containers">
-          <h2 class="header">More Info</h2>
-          <div id="other_info">
-            <a href="http://jacobia.pythonanywhere.com/alerts/&quot;{{name}}&quot;"><div class="other">Alerts</div></a>
-            <a href="http://jacobia.pythonanywhere.com/articles/&quot;{{name}}&quot;"><div class="other">Articles</div></a>
-            <a href="http://jacobia.pythonanywhere.com/campgrounds/&quot;{{name}}&quot;"><div class="other">Campgrounds</div></a>
-            <a href="http://jacobia.pythonanywhere.com/education/&quot;{{name}}&quot;"><div class="other">Educational Resources</div></a>
-            <a href="http://jacobia.pythonanywhere.com/events/&quot;{{name}}&quot;"><div class="other">Events</div></a>
-            <a href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{name}}&quot;"><div class="other">News Releases</div></a>
-            <a href="http://jacobia.pythonanywhere.com/visitorcenters/&quot;{{name}}&quot;"><div class="other">Visitor Centers</div></a>
+            <section class = "container">
+            <!-- the left side of the page -->
+                <div class = "park">
+                <!-- header for the main park info container -->
+                    <div class = "park_header">
+                        <h2>{{name}}</h2>
+                        <h3>{{designation}}</h3><br>
+                    </div>
+                <!-- image and caption for the park -->
+                    <div class="image">
+                        <img src="{{image}}"></img><br>
+                        <h4 class="caption">{{caption}}</h4>
+                    </div>
+                <!--more info to specific to the park -->
+                    <div class="info_instruction"><h2>Click a tab view information</h2></div>
+                    <div class="park_content">
+                        <div class="park_info">
+                            <button class="collapsible">Description </button>
+                            <div class="content"><div class="c"><p>{{description}}</p></div><footer class="f">Description</footer></div>
+                            <button class="collapsible">Weather</button>
+                            <div class ="content"><div class="c"><p>{{weatherInfo}}</p></div><footer class="f">Weather Info</footer></div>
+                            <button class="collapsible">Directions to Park</button>
+                            <div class="content"><div class="c"><p>{{directionsInfo}} <a href="{{directionsUrl}}">({{directionsUrl}})</a></p></div><footer class="f">Directions</footer></div>
+                            <button class="collapsible">Entrance Fees</button>
+                            <div class="content"><div class="c"><p>{{entrance_cost}}<br>{{entrance_description}}<br>{{passes}}</p></div><footer class="f">Entrance Fees</footer></div>
+                        </div>
+                    </div>
+                </div>
+            <!-- the right side of the page -->
+                <div class="right">
+                <!-- container for operating hours of park -->
+                    <div class="containers">
+                    <h2 class="header">Operating Hours</h2>
+                        <div class="body">
+                            <h4>Monday: {{monday}}</h4><br>
+                            <h4>Tuesday: {{tuesday}}</h4><br>
+                            <h4>Wednesday: {{wednesday}}</h4><br>
+                            <h4>Thursday: {{thursday}}</h4><br>
+                            <h4>Friday: {{friday}}</h4><br>
+                            <h4>Saturday: {{saturday}}</h4><br>
+                            <h4>Sunday: {{sunday}}</h4><br>
+                        </div>
+                    </div>
+                <!-- container for links to extra info for the park -->
+                    <div class="containers">
+                        <h2 class="header">More Info</h2>
+                        <div id="other_info">
+                            <a href="http://jacobia.pythonanywhere.com/alerts/&quot;{{name}}&quot;"><div class="other">Alerts</div></a>
+                            <a href="http://jacobia.pythonanywhere.com/articles/&quot;{{name}}&quot;"><div class="other">Articles</div></a>
+                            <a href="http://jacobia.pythonanywhere.com/campgrounds/&quot;{{name}}&quot;"><div class="other">Campgrounds</div></a>
+                            <a href="http://jacobia.pythonanywhere.com/education/&quot;{{name}}&quot;"><div class="other">Educational Resources</div></a>
+                            <a href="http://jacobia.pythonanywhere.com/events/&quot;{{name}}&quot;"><div class="other">Events</div></a>
+                            <a href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{name}}&quot;"><div class="other">News Releases</div></a>
+                            <a href="http://jacobia.pythonanywhere.com/visitorcenters/&quot;{{name}}&quot;"><div class="other">Visitor Centers</div></a>
+                        </div>
+                    </div>
+              </div>
+            </section>
 
-          </div>
-        </div>
-          </div>
-      </section>
-        <script>
-        $(document).ready(function() {
-        $('.content').hide();
-        $('.park_info button').on('click', function() {
-            var state = $(this).next('.content').is('.open');
-            if (state) {
-                $(this).next('.content').removeClass('open').fadeOut();
-            }else{
-                $(this).siblings('.content').removeClass('open').hide();
-                $(this).next('.content').addClass('open').show()
+        <!-- script that allows the info on the left side to appear and disappear based on user clicks -->
+            <script>
+                $(document).ready(function() {
+                $('.content').hide();
+                $('.park_info button').on('click', function() {
+                    var state = $(this).next('.content').is('.open');
+                    if (state) {
+                        $(this).next('.content').removeClass('open').fadeOut();
+                    }else{
+                        $(this).siblings('.content').removeClass('open').hide();
+                        $(this).next('.content').addClass('open').show()
 
-            }
-        });
-        });
-        </script>
-      {% endblock %}
+                    }
+                });
+                });
+            </script>
+        {% endblock %}
 
   </body>
 </html>

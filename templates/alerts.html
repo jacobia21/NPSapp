@@ -10,6 +10,7 @@
         {% extends "template.html" %}
         {%block content %}
 
+        <!-- html body if there are alerts for the selected park -->
             {%if no_center%}
             <div class="links">
                 <h1 id="page_header">{{park}}</h1>
@@ -25,37 +26,42 @@
 
             <h1 class="string">{{string}}</h1>
 
+        <!-- html body if there are alerts -->
             {%else%}
-            <div class="links">
-                <div class="alerts_link">
-                    <h1 id="page_header">{{park}}</h1>
-                    <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
-                    <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
-                    <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
-                    <a id="page_header" href="http://jacobia.pythonanywhere.com/campgrounds/&quot;{{park}}&quot;">Campgrounds</a>
-                    <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
-                    <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
-                    <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
-                    <a id="page_header" href="http://jacobia.pythonanywhere.com/visitorcenters/&quot;{{park}}&quot;">Visitor Centers</a>
-                </div>
-                 <div class = legend>
-                  <h2 id="litem"><img src = "/static/info.png" height= "25px" width ="25px">Informational</h2>
-                  <h2 id="litem"><img src = "/static/closure.png" height= "25px" width ="25px">Park Closure</h2>
-                  <h2 id="litem"><img src = "/static/danger.png" height= "25px" width ="25px">Danger Warning</h2>
-                  <h2 id="litem"><img src = "/static/caution_symbol.png" height= "25px" width ="25px">Caution Warning</h2>
-                </div>
-            </div>
-            <div class="alerts">
-                {%for title,description,symbols in alerts%}
-                    <div class = "alert">
-                    <div class ="alerts_header"><h1><img src = "/static/{{symbols}}" height= "25px" width ="25px"></img>{{title}}</h1></div>
-                    <p class ="alerts_content">{{description}}</p>
+                <div class="links">
+                    <div class="alerts_link">
+                        <h1 id="page_header">{{park}}</h1>
+                        <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
+                        <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
+                        <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
+                        <a id="page_header" href="http://jacobia.pythonanywhere.com/campgrounds/&quot;{{park}}&quot;">Campgrounds</a>
+                        <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
+                        <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
+                        <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
+                        <a id="page_header" href="http://jacobia.pythonanywhere.com/visitorcenters/&quot;{{park}}&quot;">Visitor Centers</a>
                     </div>
-                {%endfor%}
-             </div>
-            {%endif%}
 
-    {% endblock %}
+            <!-- legend for alert symbols -->
+                     <div class = legend>
+                      <h2 id="litem"><img src = "/static/info.png" height= "25px" width ="25px">Informational</h2>
+                      <h2 id="litem"><img src = "/static/closure.png" height= "25px" width ="25px">Park Closure</h2>
+                      <h2 id="litem"><img src = "/static/danger.png" height= "25px" width ="25px">Danger Warning</h2>
+                      <h2 id="litem"><img src = "/static/caution_symbol.png" height= "25px" width ="25px">Caution Warning</h2>
+                    </div>
+                </div>
+
+            <!-- print alerts -->
+                <div class="alerts">
+                    {%for title,description,symbols in alerts%}
+                        <div class = "alert">
+                        <div class ="alerts_header"><h1><img src = "/static/{{symbols}}" height= "25px" width ="25px"></img>{{title}}</h1></div>
+                        <p class ="alerts_content">{{description}}</p>
+                        </div>
+                    {%endfor%}
+                 </div>
+                {%endif%}
+
+        {% endblock %}
 
   </body>
 </html>

@@ -9,7 +9,7 @@
   <body>
         {% extends "template.html" %}
         {%block content %}
-
+        <!-- html page if no events for specific park -->
             {%if no_events%}
                 <div class="links">
                     <h1 id="page_header">{{park}}</h1>
@@ -24,7 +24,7 @@
                 </div>
                 <h1 class="string">{{string}}</h1>
             {%else%}
-
+        <!-- html page if there are events for specific park -->
                 <div class="links">
                     <h1 id="page_header">{{park}}</h1>
                     <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
@@ -36,7 +36,7 @@
                     <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
                     <a id="page_header" href="http://jacobia.pythonanywhere.com/visitorcenters/&quot;{{park}}&quot;">Visitor Centers</a>
                 </div>
-
+            <!-- prints events for specific park -->
                 <div class="items">
                     {%for titles,locations, description,category,date_start,recurrence_date_end,fees_info,regres_info,timestart,timeend in events%}
                             <h1 id ="header" style="margin-right:50px;margin-left:50px;">{{titles}}: {{category}}</h1>

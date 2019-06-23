@@ -1,3 +1,6 @@
+#this file holds a parks list with all parks from NPS and a dictionary that associates state abbreviations with their states
+
+
 parks =['Abraham Lincoln Birthplace National Historical Park',
 'Acadia National Park',
 'Adams National Historical Park',

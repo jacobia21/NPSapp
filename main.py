@@ -6,6 +6,7 @@ import re
 
 app = Flask(__name__)
 
+#sql database
 SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://:{password}@{hostname}/{databasename}".format(
     username="jacobia",
     password="44Eagles!",
@@ -16,6 +17,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
 app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db=SQLAlchemy(app)
+
 
 @app.route('/')
 def home():
@@ -33,8 +35,11 @@ def state_list_homepage():
 @app.route('/iparks_by_state/<state_code>',methods = ['GET','POST'])
 def state_list(state_code):
     state_code = state_code.replace('"', '')
+
+    #if no state_code is passed in, returns a list of states for user to choose from
     if state_code is "":
         return render_template("state_list_homepage.html")
+    #if a state code is passed in, returns the parks in specific state, along with the state and state code
     else:
         json_response =parks_query(state_code,"")
         output=[]
@@ -50,6 +55,7 @@ def name_list(alphabetChar):
     alphabetChar = alphabetChar.replace('"','')
     output = []
     names = parks
+    #finds all parks that begin with selected char, and returns them in a list
     for name in names:
         if(name.startswith(alphabetChar)):
             output.append(name)
@@ -59,13 +65,16 @@ def name_list(alphabetChar):
 @app.route('/designation/<designation>',methods = ['GET','POST'])
 def designation(designation = ""):
     designation = designation.replace('"', '')
+    #if no designation is passed in, returns designation homepage
     if designation is "":
         return render_template("designation.html",homepage = True)
+    #if designation is passsed in, returns all parks with specified designation
     else:
         json_response =designation_query(designation)
         output=[]
         for x in range(0,int(json_response['total'])-1):
             output.append(json_response['data'][x]['fullName'])
+        #small change to National Cemetery so that it appears correctly on page
         if designation == "National Cemetery":
             designation = "National Cemeterie"
         return render_template("/designation.html",output=output,designation = designation)

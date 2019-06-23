@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Flask Parent Template</title>
-    <link href="https://fonts.googleapis.com/css?family=Contrail+One&display=swap" rel="stylesheet">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='template.css') }}">
-    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Patua+One&display=swap" rel="stylesheet">
-</head>
-  <body>
-    <header>
-      <div class="navbar">
-        <div class="title">
-          <header>National Park Service Information Kiosk</header>
-          <sub>The first stop to your next great adventure!</sub>
-        </div>
-        <a href="{{ url_for('home') }}">Home</a>
-        <div class="dropdown">
-          <button class="dropbtn">Find Parks by...
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="{{url_for('interactive_map')}}">State</a>
-            <a href="{{url_for('name_list',alphabetChar ='A')}}">Name</a>
-            <a href="{{url_for('designation')}}">Designation</a>
-            <a href="{{url_for('search')}}">Search</a>
+    <head>
+        <meta charset="utf-8">
+        <title>Flask Parent Template</title>
+        <link href="https://fonts.googleapis.com/css?family=Contrail+One&display=swap" rel="stylesheet">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='template.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Patua+One&display=swap" rel="stylesheet">
+    </head>
+    <body>
+    <!-- template for all pages with page title and home and find parks by links -->
+        <header>
+          <div class="navbar">
+            <div class="title">
+              <header>National Park Service Information Kiosk</header>
+              <sub>The first stop to your next great adventure!</sub>
+            </div>
+            <a href="{{ url_for('home') }}">Home</a>
+            <div class="dropdown">
+              <button class="dropbtn">Find Parks by...
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="{{url_for('interactive_map')}}">State</a>
+                <a href="{{url_for('name_list',alphabetChar ='A')}}">Name</a>
+                <a href="{{url_for('designation')}}">Designation</a>
+                <a href="{{url_for('search')}}">Search</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-    </header>
-  {% block content %}
-  {% endblock %}
-<script>
-var coll = document.getElementsByClassName("collapsible");
-var i;
+        </header>
+    <!-- this is where the info for the other pages will be inserted -->
+        {% block content %}
+        {% endblock %}
+    <!-- javascrit used by some pages for information flow -->
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
-</script>
- </body>
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                  content.style.display = "none";
+                } else {
+                  content.style.display = "block";
+                }
+              });
+            }
+        </script>
+    </body>
 </html>

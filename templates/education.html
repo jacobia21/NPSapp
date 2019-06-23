@@ -9,6 +9,7 @@
     <body>
         {% extends "template.html" %}
         {%block content %}
+        <!-- html page if no educational resources exist for specific park -->
             {%if no_resources%}
                 <div class="links">
                     <h1 id="page_header">{{park}}</h1>
@@ -22,8 +23,8 @@
                     <a id="page_header" href="http://jacobia.pythonanywhere.com/visitorcenters/&quot;{{park}}&quot;">Visitor Centers</a>
                 </div>
                 <h1 class="string">{{string}}</h1>
+        <!-- html page if there are educational resource for specific park -->
             {%else%}
-
                 <div class="links">
                     <h1 id="page_header">{{park}}</h1>
                     <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
@@ -35,7 +36,7 @@
                     <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
                     <a id="page_header" href="http://jacobia.pythonanywhere.com/visitorcenters/&quot;{{park}}&quot;">Visitor Centers</a>
                 </div>
-
+        <!-- prints educational resources for specifc park -->
                 <div class="items">
                     <h2 id="instruction">Click any resource to view full information</h2>
                     {%for title,subject,grade_level,question_objective,duration,url in lesson_plans%}

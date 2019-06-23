@@ -10,6 +10,7 @@
         {% extends "template.html" %}
         {%block content %}
 
+        <!-- html body if there are no camps for selected park -->
             {%if no_camps%}
                 <div class="links">
                     <h1 id="page_header">{{park}}</h1>
@@ -23,8 +24,9 @@
                     <a id="page_header" href="http://jacobia.pythonanywhere.com/visitorcenters/&quot;{{park}}&quot;">Visitor Centers</a>
                 </div>
                 <h1 class="string">{{string}}</h1>
-            {%else%}
 
+        <!-- html body if there are camps for selected park -->
+            {%else%}
                 <div class="links">
                     <h1 id="page_header">{{park}}</h1>
                     <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
@@ -37,6 +39,7 @@
                     <a id="page_header" href="http://jacobia.pythonanywhere.com/visitorcenters/&quot;{{park}}&quot;">Visitor Centers</a>
                 </div>
 
+            <!-- print campgrounds -->
                 <div class="items">
                     {%for titles,descriptions,regulations,campsites,directions in campgrounds%}
                             <h1 id ="header" style="margin-right:50px;margin-left:50px;">{{titles}}</h1>
