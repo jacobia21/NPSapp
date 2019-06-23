@@ -11,7 +11,10 @@
     margin-top: 20px;
 
 }
-
+#page_header h1{
+    height: 30px;
+    color: #03A3D1;
+}
 .links a{
   text-decoration: none;
   color: #033CD1;
@@ -66,7 +69,7 @@
 }
 .items a{
     text-decoration:none;
-    color:#033CD1;
+    color:black;
 }
 .item:hover{
     background-color:ghostwhite;
@@ -102,7 +105,7 @@
     width: 60%;
 }
 .event_other{
-    padding-left: 10px;
+    padding: 15px;
     border-left: 3px solid #033CD1;
     width: 35%;
 }
@@ -118,7 +121,19 @@
     padding-right: 10px;
 }
 .release_content img{
-  width:45%;
-  height:50%;
-  padding-top: 20px;
+    width:45%;
+    height:50%;
+    padding-top: 20px;
+}
+.campground_content{
+    font-size: 20px;
+    width: 60%;
+    border-left: 3px solid #033CD1;
+    padding: 10px;
+}
+.camp{
+    text-align:center;
+    width: 35%;
+    font-size: 25px;
+    padding: 10px;
 }

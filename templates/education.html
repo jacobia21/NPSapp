@@ -9,52 +9,50 @@
     <body>
         {% extends "template.html" %}
         {%block content %}
+            {%if no_resources%}
+                <div class="links">
+                    <h1 id="page_header">{{park}}</h1>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/campgrounds/&quot;{{park}}&quot;">Campgrounds</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/visitorcenters/&quot;{{park}}&quot;">Visitor Centers</a>
+                </div>
+                <h1 class="string">{{string}}</h1>
+            {%else%}
 
-        {%if homepage%}
-        <h1>Educational Resources Homepage</h1>
+                <div class="links">
+                    <h1 id="page_header">{{park}}</h1>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/campgrounds/&quot;{{park}}&quot;">Campgrounds</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/visitorcenters/&quot;{{park}}&quot;">Visitor Centers</a>
+                </div>
 
-        {%elif no_resources%}
-            <div class="links">
-                <a  href="{{url_for('education')}}">Educational Resources Homepage</a>
-                <h1 id="page_header">{{park}}</h1>
-                <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
-                <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
-                <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
-                <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
-                <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
-                <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
-            </div>
-            <h1 class="string">{{string}}</h1>
-        {%else%}
-
-            <div class="links">
-                <a  href="{{url_for('education')}}">Educational Resources Homepage</a>
-                <h1 id="page_header">{{park}}</h1>
-                <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
-                <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
-                <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
-                <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
-                <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
-                <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
-            </div>
-
-            <div class="items">
-                <h1 id="instruction">Click any resource to view full information</h1>
-                {%for title,subject,grade_level,question_objective,duration,url in lesson_plans%}
-                    <a href="{{url}}">
-                        <div class="item">
-                            <h1 id = "header">{{title}}</h1>
-                            <div class = education_content>
-                              <h4><b>Subject</b></h4><p id = "tab">{{subject}}</p>
-                              <h4><b>Question Objective</b></h4><p id = "tab">{{question_objective}}</p>
-                              <h4><b>Targeted Grade Level</b></h4><p id = "tab">{{grade_level}}</p>
-                              <h4><b>Estimated Lesson Duration</b></h4><p id = "tab">{{duration}}</p>
+                <div class="items">
+                    <h2 id="instruction">Click any resource to view full information</h2>
+                    {%for title,subject,grade_level,question_objective,duration,url in lesson_plans%}
+                        <a href="{{url}}">
+                            <div class="item">
+                                <h1 id = "header">{{title}}</h1>
+                                <div class = education_content>
+                                  <h4><b>Subject</b></h4><p id = "tab">{{subject}}</p>
+                                  <h4><b>Question Objective</b></h4><p id = "tab">{{question_objective}}</p>
+                                  <h4><b>Targeted Grade Level</b></h4><p id = "tab">{{grade_level}}</p>
+                                  <h4><b>Estimated Lesson Duration</b></h4><p id = "tab">{{duration}}</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                {%endfor%}
-            </div>
-        {%endif%}
+                        </a>
+                    {%endfor%}
+                </div>
+            {%endif%}
 
     {% endblock %}
 

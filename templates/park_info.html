@@ -32,40 +32,8 @@
               <div class="content"><div class="c"><p>{{directionsInfo}} <a href="{{directionsUrl}}">({{directionsUrl}})</a></p></div><footer class="f">Directions</footer></div>
             <button class="collapsible">Entrance Fees</button>
               <div class="content"><div class="c"><p>{{entrance_cost}}<br>{{entrance_description}}<br>{{passes}}</p></div><footer class="f">Entrance Fees</footer></div>
-            <button class="collapsible">Nearby Campgrounds</button>
-              <div class="content">
-                {%if campgrounds == "none"%}
-                  <h4>No Campgrounds Specified</h4>
-                {%else%}
-                  {%for camps in campgrounds%}
-                  <button class = collapsible>{{camps[0]}}</button>
-                  <div class = "content">
-                    Description: {{camps[1]}}<br>
-                    Regulations: {{camps[2]}}<br>
-                    Campsites: {{camps[3]}}<br>
-                    Directions = {{camps[4]}}
-                  </div>
-                  {%endfor%}
-                {%endif%}
-            </div>
-            <button class="collapsible">Visitor Centers</button>
-            <div class="content">
-              {%if visitorcenters == "none"%}
-                <h4>No Centers Specified</h4>
-              {%else%}
-              {%for centers in visitor_centers%}
-              <button class = collapsible>{{centers[0]}}</button>
-              <div class="content">
-                Description: {{centers[1]}}<br>
-                Directions: {{centers[2]}}<br>
-                For more information, visit: {{centers[3]}}<br>
-              </div>
-              {%endfor%}
-              {%endif%}
-          </div>
         </div>
-            <footer class="bottom">For more information on {{name}}, visit: <a href="{{url}}">{{url}}</a></footer>
-          </div>
+        </div>
         </div>
         <div class="right">
         <div class="containers">
@@ -85,9 +53,12 @@
           <div id="other_info">
             <a href="http://jacobia.pythonanywhere.com/alerts/&quot;{{name}}&quot;"><div class="other">Alerts</div></a>
             <a href="http://jacobia.pythonanywhere.com/articles/&quot;{{name}}&quot;"><div class="other">Articles</div></a>
+            <a href="http://jacobia.pythonanywhere.com/campgrounds/&quot;{{name}}&quot;"><div class="other">Campgrounds</div></a>
+            <a href="http://jacobia.pythonanywhere.com/education/&quot;{{name}}&quot;"><div class="other">Educational Resources</div></a>
             <a href="http://jacobia.pythonanywhere.com/events/&quot;{{name}}&quot;"><div class="other">Events</div></a>
             <a href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{name}}&quot;"><div class="other">News Releases</div></a>
-            <a href="http://jacobia.pythonanywhere.com/education/&quot;{{name}}&quot;"><div class="other">Educational Resources</div></a>
+            <a href="http://jacobia.pythonanywhere.com/visitorcenters/&quot;{{name}}&quot;"><div class="other">Visitor Centers</div></a>
+
           </div>
         </div>
           </div>

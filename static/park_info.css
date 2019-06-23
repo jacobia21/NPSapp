@@ -175,3 +175,12 @@ a{
   width: 25%;
   color: ghostwhite;
 }
+#list{
+    display flex;
+    height:150px;
+    padding-top: 15px;
+    font: caption;
+    font-size: 30px;
+    margin: 25px;
+}
+

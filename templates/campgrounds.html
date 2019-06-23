@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>National Park Service Information Center</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='other_info.css') }}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  </head>
+  <body>
+        {% extends "template.html" %}
+        {%block content %}
+
+            {%if no_camps%}
+                <div class="links">
+                    <h1 id="page_header">{{park}}</h1>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/campgrounds/&quot;{{park}}&quot;">Campgrounds</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/visitorcenters/&quot;{{park}}&quot;">Visitor Centers</a>
+                </div>
+                <h1 class="string">{{string}}</h1>
+            {%else%}
+
+                <div class="links">
+                    <h1 id="page_header">{{park}}</h1>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/park_info/&quot;{{park}}&quot;">Info Page</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/alerts/&quot;{{park}}&quot;">Alerts</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/articles/&quot;{{park}}&quot;">Articles</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/campgrounds/&quot;{{park}}&quot;">Campgrounds</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/education/&quot;{{park}}&quot;">Educational Resources</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/events/&quot;{{park}}&quot;">Events</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/news_releases/&quot;{{park}}&quot;">News Releases</a>
+                    <a id="page_header" href="http://jacobia.pythonanywhere.com/visitorcenters/&quot;{{park}}&quot;">Visitor Centers</a>
+                </div>
+
+                <div class="items">
+                    {%for titles,descriptions,regulations,campsites,directions in campgrounds%}
+                            <h1 id ="header" style="margin-right:50px;margin-left:50px;">{{titles}}</h1>
+                                <div class="event_content">
+                                    <p class ="camp"><b>{{descriptions}}</b><br><br></p>
+                                    <p class="campground_content">
+                                        <b>Campsites:</b> {{campsites}}<br><br>
+                                        <b>Directions:</b> {{directions}}<br><br>
+                                        <b>Regulations:</b> {{regulations}}
+                                    </p>
+                                </div>
+
+
+                    {%endfor%}
+                </div>
+            {%endif%}
+
+      {% endblock %}
+
+  </body>
+</html>

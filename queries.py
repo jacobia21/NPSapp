@@ -29,52 +29,6 @@ def parks_query(state_code,query):
         else:
             return json_response['data'][0]
 
-
-def visitor_center_query(park_code):
-
-    url = "https://developer.nps.gov/api/v1/visitorcenters"
-    querystring = {"parkCode":park_code,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
-    response = requests.request("GET", url, headers=HEADERS, params=querystring)
-    json_response = json.loads(response.text)
-
-    titles = []
-    descriptions = []
-    directions = []
-    urls = []
-    if(int(json_response['total'])==0):
-        output = "none"
-    else:
-        for i in range(0,int(json_response['total'])):
-            titles.append(json_response['data'][i]['name'])
-            descriptions.append(json_response['data'][i]['description'])
-            directions.append(json_response['data'][i]['directionsInfo'])
-            urls.append(json_response['data'][i]['url'])
-        output = zip(titles,descriptions,directions,urls)
-    return output
-def campgrounds_query(park_code):
-
-    url = "https://developer.nps.gov/api/v1/campgrounds"
-    querystring = {"parkCode":park_code,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
-    response = requests.request("GET", url, headers=HEADERS, params=querystring)
-    json_response = json.loads(response.text)
-
-    titles = []
-    descriptions = []
-    regulations = []
-    campsites = []
-    directions = []
-    if(int(json_response['total'])==0):
-        output = "none"
-    else:
-        for i in range(0,int(json_response['total'])):
-            titles.append(json_response['data'][i]['name'])
-            descriptions.append(json_response['data'][i]['description'])
-            regulations.append(json_response['data'][i]['regulationsoverview'])
-            campsites.append(json_response['data'][i]['campsites']['totalsites'])
-            directions.append(json_response['data'][i]['directionsoverview'])
-        output = zip(titles,descriptions,regulations,campsites,directions)
-    return output
-
 def other_query(url_add,park_name):
     url = "https://developer.nps.gov/api/v1/" + url_add
     querystring = {"q":park_name,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
