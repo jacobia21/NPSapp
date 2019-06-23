@@ -1,0 +1,82 @@
+.search_home{
+    width: 100vw;
+    height: 50vh;
+    display:flex;
+}
+.home_content{
+    margin:auto;
+    text-align: center;
+}
+.home_content h1{
+    font-size: 50px;
+    color: #033CD1;
+    font-family: Copperplate
+}
+.home_content input[type=submit]{
+    float: right;
+    padding: 6px;
+    margin-top: auto;
+    margin-right: auto;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: auto;
+}
+.home_content input[type=text]{
+    margin-bottom: auto;
+    padding: 6px;
+    margin-top: auto;
+    font-size: 17px;
+    border: none;
+    margin-left: auto;
+}
+.searches{
+    padding-top:50px;
+}
+.searches a{
+    text-decoration:none;
+    color:black;
+}
+.search:hover{
+    background-color:ghostwhite;
+}
+
+.search{
+    margin-left:50px;
+    margin-right: 50px;
+    padding-bottom:20px;
+}
+#header{
+    border-bottom: 3px solid #033CD1;
+    border-top: 3px solid #033CD1;
+    background-color: ghostwhite;
+    text-align:center;
+    color:#033CD1;
+    font-size: 30px;
+}
+#description{
+    font-size: 20px;
+    text-align: center;
+}
+input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+input[type=submit] {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background: #ccc;
+}
+form{
+    display:flex;
+}

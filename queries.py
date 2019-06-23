@@ -46,8 +46,8 @@ def designation_query(query):
 
     return json_response
 
-def search_query(search,category):
-    url = "https://developer.nps.gov/api/v1/" + category
+def search_query(search):
+    url = "https://developer.nps.gov/api/v1/parks"
     querystring = {"q":search,"api_key":"vb4TG1kgKOIUHOfhy5Zfzs3IB9DC255aVNtUv7Jx"}
     response = requests.request("GET", url, headers=HEADERS, params=querystring)
     json_response = json.loads(response.text)

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>National Park Service Information Center</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='search.css') }}">
+  </head>
+  <body>
+        {% extends "template.html" %}
+        {%block content %}
+            {%if no_search%}
+            <div class = "search_home">
+                <div class="home_content">
+                    <h1>Find a Park!</h1>
+                    <form action="/search" method = "POST">
+                      <input type="text" name="search" value="enter search here" onfocus="if (this.value == 'enter search here') {this.value=''}">
+                      <br><br>
+                      <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+            {%elif short%}
+                <h1>Search Homepage</h1>
+                <form action="/search" method = "POST">
+                  <input type="text" name="search" value="enter search here" onfocus="if (this.value == 'enter search here') {this.value=''}">
+                  <br><br>
+                  <input type="submit" value="Submit">
+                </form>
+                <h1 style="color:#033CD1;font-size:40px;text-align:center;">Search must be at least 4 letters long</h1>
+            {%else%}
+                <form action="/search" method = "POST">
+                  <input type="text" name="search" value="enter search here" onfocus="if (this.value == 'enter search here') {this.value=''}">
+                  <br><br>
+                  <input type="submit" value="Submit">
+                </form>
+                <h1 style="color:#033CD1;font-size:40px;">Search results for: {{search}}</h1>
+                <div class= "searches">
+                    {%for names,descriptions in results%}
+                        <a href="http://jacobia.pythonanywhere.com/park_info/&quot;{{names}}&quot;">
+                            <div class = "search">
+                                <h2 id ="header">{{names}}</h2>
+                                <p id = "description">{{descriptions}}</p>
+                            </div>
+                        </a>
+                    {%endfor%}
+                </div>
+            {%endif%}
+
+        {% endblock %}
+  </body>
+</html>

@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request
 from flask_sqlalchemy import SQLAlchemy
 from lists import parks, states
 from queries import *
@@ -45,6 +45,15 @@ def state_list(state_code):
 
         return render_template("/iparks_by_state.html",output=output,state=state,state_code=state_code)
 
+@app.route('/name_list/<alphabetChar>',methods=['GET','POST'])
+def name_list(alphabetChar):
+    alphabetChar = alphabetChar.replace('"','')
+    output = []
+    names = parks
+    for name in names:
+        if(name.startswith(alphabetChar)):
+            output.append(name)
+    return render_template("/name_list.html",output=output,letter = alphabetChar)
 
 @app.route('/designation',methods=['GET','POST'])
 @app.route('/designation/<designation>',methods = ['GET','POST'])
@@ -60,6 +69,28 @@ def designation(designation = ""):
         if designation == "National Cemetery":
             designation = "National Cemeterie"
         return render_template("/designation.html",output=output,designation = designation)
+
+@app.route('/search',methods=['GET','POST'])
+def search():
+    if request.method == "GET":
+        return render_template("search.html", no_search=True)
+    else:
+        search = request.form["search"]
+        if len(search) < 4:
+            return render_template("search.html", short = True)
+        search_results = search_query(search)
+        names = []
+        descriptions = []
+        num = int(search_results['total'])
+        if num == 1:
+            num =2
+        if(num > 50):
+            num = 50
+        for i in range(0,num-1):
+            names.append(search_results['data'][i]['fullName'])
+            descriptions.append(search_results['data'][i]['description'])
+
+        return render_template("search.html",search=search,results = zip(names,descriptions))
 
 @app.route('/alerts',methods=['GET','POST'])
 @app.route('/alerts/<park_name>',methods = ['GET','POST'])
@@ -305,16 +336,6 @@ def visitorcenters(park_name = ""):
             urls.append(json_response['data'][i]['url'])
 
         return render_template("/visitorcenters.html",visitor_centers = zip(titles,descriptions,directions,urls),park=park_name)
-
-@app.route('/name_list/<alphabetChar>',methods=['GET','POST'])
-def name_list(alphabetChar):
-    alphabetChar = alphabetChar.replace('"','')
-    output = []
-    names = parks
-    for name in names:
-        if(name.startswith(alphabetChar)):
-            output.append(name)
-    return render_template("/name_list.html",output=output,letter = alphabetChar)
 
 @app.route('/park_info/<park_name>',methods=['GET','POST'])
 def park_info(park_name =""):
