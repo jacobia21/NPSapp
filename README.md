@@ -8,7 +8,7 @@ It then provides user with information from selected park. Click [here](http://j
 * [Flask](http://flask.pocoo.org/) - The web framework used
 * Python 3.7
 * HTML and CSS
-*Javascript
+* Javascript
 * [Create a Clickable Map](http://flask.pocoo.org/) - Used for the interactive map
 
 ## Author
