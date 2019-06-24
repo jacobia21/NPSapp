@@ -183,4 +183,19 @@ a{
     font-size: 30px;
     margin: 25px;
 }
-
+.pass_fees{
+    height: 170px;
+    font:caption;
+    font-size: 25px;
+    color:#033CD1;
+}
+.pass_fees p{
+    font-size: 20px;
+    margin: 10px;
+    color: black;
+}
+.pass_fee_container{
+    margin-top: 20px;
+    max-height: 325px;
+    overflow: scroll;
+}

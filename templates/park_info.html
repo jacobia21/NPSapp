@@ -24,7 +24,7 @@
                         <img src="{{image}}"></img><br>
                         <h4 class="caption">{{caption}}</h4>
                     </div>
-                <!--more info to specific to the park -->
+                <!--more info specific to the park -->
                     <div class="info_instruction"><h2>Click a tab view information</h2></div>
                     <div class="park_content">
                         <div class="park_info">
@@ -35,7 +35,29 @@
                             <button class="collapsible">Directions to Park</button>
                             <div class="content"><div class="c"><p>{{directionsInfo}} <a href="{{directionsUrl}}">({{directionsUrl}})</a></p></div><footer class="f">Directions</footer></div>
                             <button class="collapsible">Entrance Fees</button>
-                            <div class="content"><div class="c"><p>{{entrance_cost}}<br>{{entrance_description}}<br>{{passes}}</p></div><footer class="f">Entrance Fees</footer></div>
+                            <div class="content">
+                                <div class="pass_fees">
+                                    <div class="pass_fee_container">
+                                        {%for fee in entrance_fees%}
+                                            <h4>{{fee['title']}}: {{fee['cost']}}</h4>
+                                            <p>{{fee['description']}}</p>
+                                        {%endfor%}
+                                    </div>
+                                </div>
+                                <footer class="f">Entrance Fees</footer>
+                            </div>
+                            <button class="collapsible">Entrance Passes</button>
+                            <div class="content">
+                                <div class="pass_fees">
+                                    <div class ="pass_fee_container">
+                                        {%for pass in entrance_passes%}
+                                            <h4>{{pass['title']}}: {{pass['cost']}}</h4>
+                                            <p>{{pass['description']}}</p>
+                                        {%endfor%}
+                                    </div>
+                                </div>
+                                <footer class="f">Entrance Passes</footer>
+                            </div>
                         </div>
                     </div>
                 </div>
